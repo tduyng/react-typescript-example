@@ -6,8 +6,7 @@
       "warn",
       {
         "arrowParens": "avoid",
-        "semi": false,
-        "trailingComma": "none",
+        "trailingComma": "all",
         "endOfLine": "lf",
         "tabWidth": 2,
         "printWidth": 80,
