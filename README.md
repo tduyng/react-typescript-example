@@ -1,7 +1,6 @@
 # TypeScript React Boilerplate
 
-Template Typescript React Project using Webpack
-
+Template Typescript React Project
 ## Installation
 
 To use this template
