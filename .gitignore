@@ -20,7 +20,6 @@ chrome-user-data
 *.sublime-workspace
 .idea
 *.iml
-.vscode
 *.swp
 *.swo
 
