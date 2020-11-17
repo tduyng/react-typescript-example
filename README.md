@@ -1,6 +1,6 @@
-# Webpack React TypeScript Template
+# TypeScript React Boilerplate
 
-Template Webpack React Project using TypeScript
+Template Typescript React Project using Webpack
 
 ## Installation
 
@@ -22,6 +22,9 @@ To use this template
   # or npm run start / npm run build
   ```
 - Start coding
+Login
+username: admin
+password: 123
 
 
 ## Project structure
