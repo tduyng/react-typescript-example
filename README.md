@@ -132,6 +132,12 @@ password: 123
 │       ├── product.d.ts
 │       ├── reducer.d.ts
 │       └── user.d.ts
+├── .env
+├── .eslintignore
+├── .eslint
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
 ├── tsconfig.json
 └── yarn.lock
 ```
