@@ -9,6 +9,7 @@ const StepFormRoutes = () => {
   return (
     <Switch>
       <Route
+        exact
         path={PATH.STEP_FORM}
         component={() => (
           <Suspense fallback={<Loading />}>
