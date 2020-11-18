@@ -1,10 +1,10 @@
 import React from 'react';
 import { Spinner } from './Loading.styles';
 
-export default function Loading() {
+export const Loading = () => {
   return (
     <div>
       <Spinner />
     </div>
   );
-}
+};
