@@ -7,7 +7,6 @@ scripts/flow/*/.flowconfig
 .grunt
 _SpecRunner.html
 __benchmarks__
-build/
 remote-repo/
 coverage/
 .module-cache
@@ -145,7 +144,6 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directories
 node_modules/
@@ -193,8 +191,6 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-build
-build/
 dist/
 # Gatsby files
 .cache/
