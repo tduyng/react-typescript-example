@@ -224,3 +224,5 @@ dist/
 .pnp.*
 
 .boilerplate/
+# Local Netlify folder
+.netlify

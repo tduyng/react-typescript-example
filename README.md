@@ -21,9 +21,10 @@ To use this template
   # or npm run start / npm run build
   ```
 - Start coding
+Demo deploy: [reactts-boilerplate.netlify.app](https://reactts-boilerplate.netlify.app/)
 Login
 username: admin
-password: 123
+password: 123456
 
 
 ## Project structure
