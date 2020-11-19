@@ -10,8 +10,8 @@ interface StepFormType {
 }
 
 interface StepFormProps {
-  step?: number;
-  setStep?: React.Dispatch<SetStateAction<number>>;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  formData?: StepForm;
+  step: number;
+  setStep: React.Dispatch<SetStateAction<number>>;
+  formData: StepForm;
+  setFormData: any;
 }
