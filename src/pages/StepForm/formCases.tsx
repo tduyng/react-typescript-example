@@ -3,7 +3,6 @@ import { FormUserDetails } from './FormUserDetails';
 import { FormPersonalDetails } from './FormPersonalDetails';
 import { Confirm } from './Confirm';
 import { Success } from './Success';
-import { StepFormType } from 'src/@types/stepForm';
 
 const FormCases = (step, setStep, formData, setFormData) => [
   {

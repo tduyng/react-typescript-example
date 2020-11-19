@@ -5,7 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "global": "^4.4.0",
     "immer": "^7.0.14",
+    "netlify-cli": "^2.68.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",

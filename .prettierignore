@@ -1,2 +1,4 @@
 .cache
 package-lock.json
+src/serviceWorker.ts
+src/setupTests.ts
