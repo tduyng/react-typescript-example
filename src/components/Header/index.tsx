@@ -14,7 +14,7 @@ export const AppHeader = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a href="/">REACT TEMPLATE</a>
+        <a href="/">REACT TS</a>
       </div>
       <div className="navbar-menu">
         <div className="navbar-left-menu">
