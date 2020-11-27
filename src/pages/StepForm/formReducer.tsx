@@ -9,7 +9,7 @@ export const DefaultForm: StepFormType = {
   bio: '',
 };
 
-export const FormReducer = (formData, { type, payload }) => {
+export const FormReducer = (formData: StepFormType, { type, payload }) => {
   switch (type) {
     case 'UPDATE_FIRST':
       return {

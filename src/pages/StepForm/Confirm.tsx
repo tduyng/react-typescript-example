@@ -7,9 +7,9 @@ import {
   ListItemText,
 } from '@material-ui/core';
 import React from 'react';
-import { StepFormProps } from 'src/@types/stepForm';
 import { ThemeProvider } from '@material-ui/styles';
 import { theme } from './FormUserDetails';
+import { StepFormProps } from 'src/@types/stepForm';
 
 const Confirm = (props: StepFormProps) => {
   const { step, setStep, formData } = props;
