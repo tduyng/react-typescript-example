@@ -1,15 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { HomeRoutes } from './HomeRoutes';
-import { StepFormRoutes } from './StepFormRoutes';
+// import { StepFormRoutes } from './XRoutes';
 
-const Routes = () => {
+export const Routes = () => {
   return (
     <BrowserRouter>
-      <HomeRoutes></HomeRoutes>
-      <StepFormRoutes />
+      <HomeRoutes />
+      {/* <StepFormRoutes /> */}
     </BrowserRouter>
   );
 };
-
-export default Routes;
