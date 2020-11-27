@@ -3,7 +3,7 @@ import { LeftMenu } from './LeftMenu';
 import { RightMenu } from './RightMenu';
 import { Drawer, Button } from 'antd';
 
-export const Header = () => {
+export const AppHeader = () => {
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
