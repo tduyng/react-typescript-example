@@ -1,6 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import './home.scss';
+@import './header.scss';
+@import './responsive.scss';
 
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+.ant-layout {
+  background: #fff;
+}
+
+.main-layout .ant-layout-header {
+  background: #f8f8f8;
+  padding: 0;
+  height: auto;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
 }

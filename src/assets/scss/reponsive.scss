@@ -1,0 +1,28 @@
+/* 
+responsive
+---
+*/
+
+.hide-on-mobile {
+  display: block; //display on tablet and desktop
+}
+.show-on-mobile {
+  display: none; //hide on tablet & desktop
+}
+
+// tablet
+@media only screen and (max-width: 991px) {
+  .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
+    transform: scale(1.14);
+  }
+}
+
+// mobile
+@media only screen and (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  .show-on-mobile {
+    display: block;
+  }
+}
