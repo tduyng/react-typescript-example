@@ -1,5 +1,5 @@
 import * as types from './App.constants';
-import { LOGIN_SUCCESS } from 'src/pages/LoginPage/Login.constants';
+import { LOGIN_SUCCESS } from 'src/components/Login/Login.constants';
 import produce from 'immer';
 
 const initialState = {

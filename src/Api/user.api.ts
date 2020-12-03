@@ -9,7 +9,7 @@ export const loginApi = ({
           data: {
             access_token: '82jdu82193yh90sad83hxfgsd',
           },
-          message: 'Login successful',
+          message: 'Login successfully',
         });
       } else {
         reject(new Error('Login failed'));

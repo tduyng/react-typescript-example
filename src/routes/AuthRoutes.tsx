@@ -4,7 +4,7 @@ import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 const LoginPage = lazy(() => import('src/pages/LoginPage'));
 
-export const LoginRoutes = () => {
+export const AuthRoutes = () => {
   return (
     <Switch>
       <Route

@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { connect, ConnectedProps } from 'react-redux';
+import { login } from './Login.thunks';
+import { useHistory } from 'react-router-dom';
+import { PATH } from 'src/constants/paths';
 
-export const Login = () => {
-  const onFinish = values => {
-    // eslint-disable-next-line
-    console.log('submit');
+const mapStateToProps = state => ({
+  loading: state.loading,
+});
+const mapDispatchToProps = {
+  login,
+};
+const connector = connect(mapStateToProps, mapDispatchToProps);
+interface Props extends ConnectedProps<typeof connector> {}
+
+const _Login = (props: Props) => {
+  // const [formData, setFormData] = useState({ username: '', password: '' });
+  const [error, setError] = useState('');
+  const { login, loading } = props;
+  const history = useHistory();
+
+  const onFinish = async formData => {
+    const { username, password } = formData;
+    if (!loading) {
+      const payload = { username, password };
+      try {
+        await login(payload);
+        history.push(PATH.HOME);
+      } catch (error) {
+        setError(error.payload.message);
+      }
+    }
   };
   return (
     <div className="container">
@@ -72,3 +98,5 @@ export const Login = () => {
     </div>
   );
 };
+const Login = connector(_Login);
+export { Login };
