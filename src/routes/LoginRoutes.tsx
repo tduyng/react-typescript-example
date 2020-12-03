@@ -2,22 +2,19 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
-const HomePage = lazy(() => import('src/pages/HomePage'));
+const LoginPage = lazy(() => import('src/pages/LoginPage'));
 
-const HomeRoutes = () => {
+export const LoginRoutes = () => {
   return (
     <Switch>
       <Route
-        exact
-        path={PATH.HOME}
+        path={PATH.LOGIN}
         component={() => (
           <Suspense fallback={<Loading />}>
-            <HomePage />
+            <LoginPage />
           </Suspense>
         )}
-      ></Route>
+      />
     </Switch>
   );
 };
-
-export { HomeRoutes };

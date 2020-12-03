@@ -4,6 +4,13 @@
   right: 0;
   z-index: 9;
 }
+.main-layout .ant-layout-header {
+  background: #fff;
+  padding: 0;
+  height: auto;
+  line-height: 1.6;
+}
+
 .navbar {
   display: flex;
   align-items: center;

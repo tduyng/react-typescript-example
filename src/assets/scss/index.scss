@@ -4,6 +4,7 @@
 @import 'footer';
 @import 'home';
 @import 'responsive';
+@import 'login';
 
 * {
   box-sizing: border-box;
@@ -40,13 +41,6 @@ img {
 }
 .ant-layout {
   background: $white-color;
-}
-
-.main-layout .ant-layout-header {
-  background: #f8f8f8;
-  padding: 0;
-  height: auto;
-  line-height: 1.6;
 }
 
 p {
