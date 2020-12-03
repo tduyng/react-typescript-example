@@ -18,7 +18,7 @@ export const Home = () => {
             </p>
             <div className="home-button-wrap">
               <Button type="primary" size="large">
-                Login
+                Go to Log In Page
               </Button>
             </div>
           </div>

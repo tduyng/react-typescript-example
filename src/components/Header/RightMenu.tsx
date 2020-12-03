@@ -9,10 +9,10 @@ export const RightMenu = () => {
   return (
     <Menu mode={md ? 'horizontal' : 'inline'}>
       <Menu.Item key="menukey-login">
-        <a href="/login">SignIn</a>
+        <a href="/login">Sign In</a>
       </Menu.Item>
       <Menu.Item key="menukey-signup">
-        <a href="/signup">SignUp</a>
+        <a href="/signup">Sign Up</a>
       </Menu.Item>
     </Menu>
   );

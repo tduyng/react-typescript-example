@@ -12,35 +12,39 @@ export const AppHeader = () => {
     setVisible(false);
   };
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        <a href="/">REACT TS</a>
-      </div>
-      <div className="navbar-menu">
-        <div className="navbar-left-menu">
-          <LeftMenu />
+    <div className="container">
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <a href="/">REACT TS</a>
         </div>
-        <div className="navbar-right-menu">
-          <RightMenu />
+        <div className="navbar-menu">
+          <div className="navbar-left-menu">
+            <LeftMenu />
+          </div>
+          <div className="navbar-right-menu">
+            <RightMenu />
+          </div>
         </div>
-        <Button
-          className="navbar-bars-icon"
-          type="primary"
-          onClick={showDrawer}
-        >
-          <span className="navbar-bars-button"></span>
-        </Button>
-        <Drawer
-          title="Drawer navbar"
-          placement="right"
-          closable={false}
-          onClose={drawerOnClose}
-          visible={visible}
-        >
-          <LeftMenu />
-          <RightMenu />
-        </Drawer>
-      </div>
-    </nav>
+        <div>
+          <Button
+            className="navbar-btnBars"
+            type="primary"
+            onClick={showDrawer}
+          >
+            <span className="navbar-btnBars-span"></span>
+          </Button>
+          <Drawer
+            title="Drawer navbar"
+            placement="right"
+            closable={true}
+            onClose={drawerOnClose}
+            visible={visible}
+          >
+            <LeftMenu />
+            <RightMenu />
+          </Drawer>
+        </div>
+      </nav>
+    </div>
   );
 };
