@@ -12,9 +12,9 @@ export const DemoOption1 = () => {
   };
   return (
     <div className="static-pages-section ">
-      <div className="container">
+      <div className="container-fluid">
         <div className="demo-content">
-          <div className="demo-title-wrapper">
+          <div className="block-title">
             <h2>Demo Option 1</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
