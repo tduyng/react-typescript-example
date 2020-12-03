@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { LeftMenu } from './LeftMenu';
 import { RightMenu } from './RightMenu';
 import { Drawer, Button } from 'antd';
@@ -15,7 +16,9 @@ export const AppHeader = () => {
     <div className="container">
       <nav className="navbar">
         <div className="navbar-logo">
-          <a href="/">REACT TS</a>
+          <NavLink to="/" className="navbar-item" activeClassName="is-active">
+            REACT TS
+          </NavLink>
         </div>
         <div className="navbar-menu">
           <div className="navbar-left-menu">

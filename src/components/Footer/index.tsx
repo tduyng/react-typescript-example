@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -17,19 +18,19 @@ export const AppFooter = () => {
           </div>
           <ul className="footer-socials">
             <li>
-              <a href="https://github.com/tienduynguyen">
+              <Link to="https://github.com/tienduy-nguyen">
                 <GithubOutlined />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="https://www.twitter.com/">
+              <Link to="https://www.twitter.com/tienduy_nguyen">
                 <TwitterOutlined />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="https://www.linkedin.com/">
+              <Link to="https://www.linkedin.com/">
                 <LinkedinOutlined />
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="copyright">Copyright &copy; 2020 REACT TS</div>

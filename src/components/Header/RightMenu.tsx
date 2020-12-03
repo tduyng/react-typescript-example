@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Grid } from 'antd';
+import { NavLink } from 'react-router-dom';
 
 const { useBreakpoint } = Grid;
 
@@ -8,10 +9,14 @@ export const RightMenu = () => {
   return (
     <Menu mode={md ? 'horizontal' : 'inline'}>
       <Menu.Item key="menukey-login">
-        <a href="/login">Sign In</a>
+        <NavLink className="navbar-item primary" to="/login">
+          Sign In
+        </NavLink>
       </Menu.Item>
       <Menu.Item key="menukey-signup">
-        <a href="/signup">Sign Up</a>
+        <NavLink className="navbar-item" to="/signup">
+          Register
+        </NavLink>
       </Menu.Item>
     </Menu>
   );
