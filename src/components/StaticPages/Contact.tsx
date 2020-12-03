@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Contact = () => {
   return (
-    <div className="contact-page">
+    <div className="static-pages-section">
       <div className="container">
         <h1>Contact Page</h1>
         <p>

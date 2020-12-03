@@ -10,14 +10,15 @@
   height: auto;
   line-height: 1.6;
 }
-
+.navbar-section {
+  border-bottom: solid 1px #e8e8e8;
+  overflow: auto;
+  box-shadow: 0 0 30px #f3f1f1;
+}
 .navbar {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  border-bottom: solid 1px #e8e8e8;
-  overflow: auto;
-  box-shadow: 0 0 30px #f3f1f1;
 
   .ant-menu-item {
     padding: 0px 5px;

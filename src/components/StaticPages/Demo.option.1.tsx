@@ -10,7 +10,7 @@ export const DemoOption1 = () => {
     setVisible(false);
   };
   return (
-    <div className="service-page">
+    <div className="static-pages-section ">
       <div className="container">
         <div className="demo-content">
           <div className="demo-title-wrapper">

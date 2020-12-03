@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 
 export const Home = () => {
@@ -18,7 +19,9 @@ export const Home = () => {
             </p>
             <div className="home-button-wrap">
               <Button type="primary" size="large">
-                <a href="/login">Go to Login Page</a>
+                <Link to="/login" className="button-login-link">
+                  Go To Login Page
+                </Link>
               </Button>
             </div>
           </div>

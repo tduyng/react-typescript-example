@@ -3,6 +3,7 @@
 @import 'header';
 @import 'footer';
 @import 'home';
+@import 'staticPages';
 @import 'responsive';
 @import 'login';
 
@@ -15,7 +16,7 @@
 body {
   font-size: 1rem;
   line-height: 1.6;
-  background-color: $white-color;
+  background-color: #fff;
 }
 
 a {
@@ -39,8 +40,15 @@ img {
   max-width: 1200px;
   padding: 0 15px;
 }
+
 .ant-layout {
-  background: $white-color;
+  background: #fff;
+}
+.ant-layout-content {
+  background-color: #fff;
+}
+.ant-layout.main-layout {
+  background-color: #fff;
 }
 
 p {

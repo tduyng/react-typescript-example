@@ -18,19 +18,19 @@ export const AppFooter = () => {
           </div>
           <ul className="footer-socials">
             <li>
-              <Link to="https://github.com/tienduy-nguyen">
+              <a target="_blank" href="https://github.com/tienduy-nguyen">
                 <GithubOutlined />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="https://www.twitter.com/tienduy_nguyen">
+              <a target="_blank" href="https://www.twitter.com/tienduy_nguyen">
                 <TwitterOutlined />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="https://www.linkedin.com/">
+              <a target="_blank" href="https://www.linkedin.com/">
                 <LinkedinOutlined />
-              </Link>
+              </a>
             </li>
           </ul>
           <div className="copyright">Copyright &copy; 2020 REACT TS</div>

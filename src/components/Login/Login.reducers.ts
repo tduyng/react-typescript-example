@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-export const loginReducer = (state = initialState, action) => {
+export const loginReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case types.LOGIN_REQUESTED:
@@ -21,4 +21,3 @@ export const loginReducer = (state = initialState, action) => {
         return state;
     }
   });
-};
