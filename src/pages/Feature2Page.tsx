@@ -2,7 +2,7 @@ import React from 'react';
 import { FeatureOption2 } from 'src/components/StaticPages/Feature.option.2';
 import { MainLayout } from 'src/layouts/MainLayout';
 
-const _LoginPage = () => {
+const _Feature2 = () => {
   return (
     <MainLayout>
       <FeatureOption2 />
@@ -10,5 +10,5 @@ const _LoginPage = () => {
   );
 };
 
-const LoginPage = React.memo(_LoginPage);
-export default LoginPage;
+const Feature2Page = React.memo(_Feature2);
+export default Feature2Page;

@@ -4,6 +4,7 @@ import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 const HomePage = lazy(() => import('src/pages/HomePage'));
 const ContactPage = lazy(() => import('src/pages/ContactPage'));
+const AboutPage = lazy(() => import('src/pages/AboutPage'));
 const Demo1Page = lazy(() => import('src/pages/Demo1Page'));
 const Demo2Page = lazy(() => import('src/pages/Demo2Page'));
 const Feature1Page = lazy(() => import('src/pages/Feature1Page'));
@@ -26,6 +27,14 @@ export const StaticPageRoutes = () => {
         component={() => (
           <Suspense fallback={<Loading />}>
             <ContactPage />
+          </Suspense>
+        )}
+      />
+      <Route
+        path={PATH.ABOUT}
+        component={() => (
+          <Suspense fallback={<Loading />}>
+            <AboutPage />
           </Suspense>
         )}
       />
@@ -54,7 +63,7 @@ export const StaticPageRoutes = () => {
         )}
       />
       <Route
-        path={PATH.FEATURE1}
+        path={PATH.FEATURE2}
         component={() => (
           <Suspense fallback={<Loading />}>
             <Feature2Page />

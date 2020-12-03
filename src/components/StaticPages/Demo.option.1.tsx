@@ -1,3 +1,4 @@
+import { PlayCircleOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
@@ -23,7 +24,7 @@ export const DemoOption1 = () => {
           </div>
           <div className="demo-button-play">
             <Button size="large" onClick={e => showModal(e)}>
-              <i className="fas fa-play"></i>
+              <PlayCircleOutlined />
             </Button>
           </div>
           <Modal

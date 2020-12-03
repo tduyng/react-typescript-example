@@ -2,7 +2,7 @@ import React from 'react';
 import { Contact } from 'src/components/StaticPages/Contact';
 import { MainLayout } from 'src/layouts/MainLayout';
 
-const _LoginPage = () => {
+const _ContactPage = () => {
   return (
     <MainLayout>
       <Contact />
@@ -10,5 +10,5 @@ const _LoginPage = () => {
   );
 };
 
-const LoginPage = React.memo(_LoginPage);
-export default LoginPage;
+const ContactPage = React.memo(_ContactPage);
+export default ContactPage;

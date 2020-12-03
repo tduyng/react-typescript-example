@@ -14,7 +14,7 @@ export const MainLayout = (props: Props) => {
       <Header>
         <AppHeader />
       </Header>
-      <Content>{children}</Content>
+      <Content className="layout-children">{children}</Content>
       <Footer>
         <AppFooter />
       </Footer>

@@ -16,12 +16,20 @@ export const LeftMenu = () => {
       </Menu.Item>
       <SubMenu key="sub1" title="Services">
         <MenuItemGroup title="Features">
-          <Menu.Item key="setting:1">Option 1</Menu.Item>
-          <Menu.Item key="setting:2">Option 2</Menu.Item>
+          <Menu.Item key="setting:1">
+            <NavLink to="/feature1">Option 1</NavLink>
+          </Menu.Item>
+          <Menu.Item key="setting:2">
+            <NavLink to="/feature2">Option 2</NavLink>
+          </Menu.Item>
         </MenuItemGroup>
         <MenuItemGroup title="Demo">
-          <Menu.Item key="setting:3">Option 1</Menu.Item>
-          <Menu.Item key="setting:4">Option 2</Menu.Item>
+          <Menu.Item key="setting:3">
+            <NavLink to="/demo1">Option 1</NavLink>
+          </Menu.Item>
+          <Menu.Item key="setting:4">
+            <NavLink to="/demo2">Option 2</NavLink>
+          </Menu.Item>
         </MenuItemGroup>
       </SubMenu>
       <Menu.Item key="key-about">

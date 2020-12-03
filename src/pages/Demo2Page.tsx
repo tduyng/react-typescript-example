@@ -2,7 +2,7 @@ import React from 'react';
 import { DemoOption2 } from 'src/components/StaticPages/Demo.option.2';
 import { MainLayout } from 'src/layouts/MainLayout';
 
-const _LoginPage = () => {
+const _Demo2 = () => {
   return (
     <MainLayout>
       <DemoOption2 />
@@ -10,5 +10,5 @@ const _LoginPage = () => {
   );
 };
 
-const LoginPage = React.memo(_LoginPage);
-export default LoginPage;
+const Demo2 = React.memo(_Demo2);
+export default Demo2;

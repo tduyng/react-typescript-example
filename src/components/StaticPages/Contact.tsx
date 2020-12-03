@@ -4,7 +4,7 @@ export const Contact = () => {
   return (
     <div className="static-pages-section">
       <div className="container">
-        <h1>Contact Page</h1>
+        <h1>Contact Us</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
           cupiditate omnis eius totam aperiam? Illo eius repudiandae nostrum
