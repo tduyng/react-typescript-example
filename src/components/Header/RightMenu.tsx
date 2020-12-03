@@ -1,7 +1,6 @@
 import React from 'react';
 import { Menu, Grid } from 'antd';
 
-const { SubMenu, ItemGroup: MenuItemGroup } = Menu;
 const { useBreakpoint } = Grid;
 
 export const RightMenu = () => {

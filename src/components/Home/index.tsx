@@ -18,7 +18,7 @@ export const Home = () => {
             </p>
             <div className="home-button-wrap">
               <Button type="primary" size="large">
-                Go to Log In Page
+                <a href="/login">Go to Login Page</a>
               </Button>
             </div>
           </div>
