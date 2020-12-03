@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { HomeRoutes } from './HomeRoutes';
+import { StaticPageRoutes } from './StaticPageRoutes';
 import { AuthRoutes } from './AuthRoutes';
 
 export const Routes = () => {
   return (
     <BrowserRouter>
-      <HomeRoutes />
+      <StaticPageRoutes />
       <AuthRoutes />
     </BrowserRouter>
   );
