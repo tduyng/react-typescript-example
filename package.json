@@ -37,7 +37,7 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "json-server": "json-server --watch server/db.json",
+    "json-server": "json-server --watch server/db/db.json --routes server/routes.json --port 5000",
     "dev": "react-scripts start",
     "start": "concurrently \"yarn json-server\" \"yarn dev\"",
     "build": "react-scripts build",

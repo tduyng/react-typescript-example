@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button } from 'antd';
+import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { login } from './Login.thunks';
+import { login } from './Register.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = state => ({
@@ -59,6 +59,16 @@ const _Register = (props: Props) => {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Username"
+            />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input
+              prefix={<MailOutlined className="site-form-item-icon" />}
+              placeholder="Email"
+              type="email"
             />
           </Form.Item>
 

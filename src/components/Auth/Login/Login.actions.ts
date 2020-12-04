@@ -13,3 +13,16 @@ export const loginFailed = payload => ({
   type: types.LOGIN_FAILED,
   payload,
 });
+
+export const userLoaded = payload => ({
+  type: types.USER_LOADED,
+  payload,
+});
+
+export const authError = () => ({
+  type: types.AUTH_ERROR,
+});
+
+export const logout = () => ({
+  type: types.LOGOUT,
+});

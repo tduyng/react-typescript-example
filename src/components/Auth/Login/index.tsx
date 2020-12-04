@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
@@ -28,11 +28,11 @@ const _Login = (props: Props) => {
       const payload = { username, password };
       try {
         const res = await login(payload);
+        message.success('Login successfully');
         history.push(PATH.HOME);
-        console.log('Success', res);
       } catch (error) {
+        message.error(error.message);
         setError(error.payload.message);
-        console.log('Error', error.message);
       }
     }
   };
@@ -86,6 +86,7 @@ const _Login = (props: Props) => {
               type="primary"
               htmlType="submit"
               className="login-form-button"
+              loading={loading}
             >
               Log in
             </Button>
