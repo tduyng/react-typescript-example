@@ -3,6 +3,7 @@ import produce from 'immer';
 
 const initialState = {
   loading: false,
+  isAuthenticated: false,
 };
 
 export const loginReducer = (state = initialState, action) =>
@@ -13,6 +14,7 @@ export const loginReducer = (state = initialState, action) =>
         break;
       case types.LOGIN_SUCCESS:
         draft.loading = false;
+        draft.isAuthenticated = true;
         break;
       case types.LOGIN_FAILED:
         draft.loading = false;

@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
+import { useHistory, Link } from 'react-router-dom';
 import { login } from './Login.thunks';
-import { useHistory } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = state => ({
   loading: state.loading,
+  isAuthenticated: state.isAuthenticated,
 });
 const mapDispatchToProps = {
   login,
@@ -26,10 +27,12 @@ const _Login = (props: Props) => {
     if (!loading) {
       const payload = { username, password };
       try {
-        await login(payload);
+        const res = await login(payload);
         history.push(PATH.HOME);
+        console.log('Success', res);
       } catch (error) {
         setError(error.payload.message);
+        console.log('Error', error.message);
       }
     }
   };
@@ -74,9 +77,9 @@ const _Login = (props: Props) => {
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <a className="login-form-forgot" href="/">
+            <Link className="login-form-forgot" to="/forgotpassword">
               Forgot password
-            </a>
+            </Link>
           </Form.Item>
           <Form.Item>
             <Button
@@ -88,9 +91,9 @@ const _Login = (props: Props) => {
             </Button>
             <div className="login-form-register-link-wrapper">
               Or{' '}
-              <a href="/" className="login-form-register-link">
+              <Link to="/signup" className="login-form-register-link">
                 Register now!
-              </a>
+              </Link>
             </div>
           </Form.Item>
         </Form>

@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
-const LoginPage = lazy(() => import('src/pages/LoginPage'));
+const LoginPage = lazy(() => import('src/pages/AuthPages/LoginPage'));
 
 export const AuthRoutes = () => {
   return (
