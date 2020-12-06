@@ -3,7 +3,7 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { login } from './Register.thunks';
+import { login } from './Register/Register.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = state => ({

@@ -1,4 +1,4 @@
-import * as types from './Login.constants';
+import * as types from './Auth.constants';
 
 export const loginRequested = () => ({
   type: types.LOGIN_REQUESTED,
@@ -25,4 +25,14 @@ export const authError = () => ({
 
 export const logout = () => ({
   type: types.LOGOUT,
+});
+
+export const registerSuccess = payload => ({
+  type: types.REGISTER_SUCCESS,
+  payload,
+});
+
+export const registerFailed = payload => ({
+  type: types.REGISTER_FAILED,
+  payload,
 });

@@ -1,4 +1,9 @@
 {
-  "users": [],
+  "users": [{
+    "id": "dfdmsqjfmsd",
+    "username": "usertest",
+    "email": "emailusertest@gmail.com",
+    "password": "123"
+  }],
   "products": []
 }
