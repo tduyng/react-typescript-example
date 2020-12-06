@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { login } from './Register/Register.thunks';
+import { register } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = state => ({
@@ -11,28 +11,25 @@ const mapStateToProps = state => ({
   isAuthenticated: state.isAuthenticated,
 });
 const mapDispatchToProps = {
-  login,
+  register,
 };
 const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
 const _Register = (props: Props) => {
-  // const [formData, setFormData] = useState({ username: '', password: '' });
+  // eslint-disable-next-line
   const [error, setError] = useState('');
-  const { login, loading } = props;
+  const { register, loading } = props;
   const history = useHistory();
 
   const onFinish = async formData => {
-    const { username, password } = formData;
     if (!loading) {
-      const payload = { username, password };
       try {
-        const res = await login(payload);
+        await register(formData);
+        message.success('Register successfully');
         history.push(PATH.HOME);
-        console.log('Success', res);
       } catch (error) {
         setError(error.payload.message);
-        console.log('Error', error.message);
       }
     }
   };
@@ -93,7 +90,7 @@ const _Register = (props: Props) => {
             <div className="login-form-register-link-wrapper">
               Or{' '}
               <Link to="/login" className="login-form-register-link">
-                LogIn now!
+                Log in now!
               </Link>
             </div>
           </Form.Item>

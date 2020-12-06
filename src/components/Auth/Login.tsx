@@ -17,7 +17,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
 const _Login = (props: Props) => {
-  // const [formData, setFormData] = useState({ username: '', password: '' });
+  //  eslint-disable-next-line
   const [error, setError] = useState('');
   const { login, loading } = props;
   const history = useHistory();
@@ -27,7 +27,7 @@ const _Login = (props: Props) => {
     if (!loading) {
       const payload = { username, password };
       try {
-        const res = await login(payload);
+        await login(payload);
         message.success('Login successfully');
         history.push(PATH.HOME);
       } catch (error) {

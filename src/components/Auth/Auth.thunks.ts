@@ -43,6 +43,9 @@ export const register = (payload: ReqRegister) => async dispatch => {
     await axios.post(`${URL.baseAPIUrl}/api/users`, newUser);
     localStorage.setItem('token', id);
     dispatch(actions.registerSuccess(newUser));
+    console.log('Resgister success', newUser);
+    const all = await axios.get(`${URL.baseAPIUrl}/api/users`);
+    console.log('All users', all);
     loadUser();
   } catch (error) {
     return dispatch(actions.registerFailed);

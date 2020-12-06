@@ -1,3 +1,3 @@
 export const URL = {
-  baseAPIUrl: 'http://locahost:5000/',
+  baseAPIUrl: 'http://localhost:5000',
 };
