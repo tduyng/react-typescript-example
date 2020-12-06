@@ -1,11 +1,7 @@
 interface ReqLogin {
   username: string;
   password: string;
-}
-interface ReqRegister {
-  username: string;
-  email: string;
-  password: string;
+  email?: string;
 }
 interface ResLoginApi extends Res {
   data: {

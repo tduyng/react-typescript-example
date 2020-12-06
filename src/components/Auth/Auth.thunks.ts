@@ -26,7 +26,6 @@ export const login = (payload: ReqLogin) => async dispatch => {
     allUsers = await axios.get(`${URL.baseAPIUrl}/api/users`);
     let user = allUsers.filter(x => x.username === username)[0];
     if (user && user.password === password) {
-      localStorage.setItem('token', user.id);
       dispatch(actions.loginSuccess(user));
       loadUser();
     }
@@ -36,12 +35,11 @@ export const login = (payload: ReqLogin) => async dispatch => {
   }
 };
 
-export const register = (payload: ReqRegister) => async dispatch => {
+export const register = (payload: ReqLogin) => async dispatch => {
   try {
     const id = uuid();
     const newUser = { id, ...payload };
     await axios.post(`${URL.baseAPIUrl}/api/users`, newUser);
-    localStorage.setItem('token', id);
     dispatch(actions.registerSuccess(newUser));
     console.log('Resgister success', newUser);
     const all = await axios.get(`${URL.baseAPIUrl}/api/users`);

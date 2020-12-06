@@ -1,11 +1,17 @@
 import * as types from './Auth.constants';
 import produce from 'immer';
 
+let userType: IUser = {
+  id: '',
+  username: '',
+  email: undefined,
+  password: '',
+};
 const initialState = {
   loading: true,
   isAuthenticated: false,
   token: localStorage.getItem('token'),
-  user: null,
+  user: userType,
 };
 
 export const loginReducer = (state = initialState, action) =>
@@ -16,13 +22,9 @@ export const loginReducer = (state = initialState, action) =>
         draft.loading = false;
         draft.user = action.payload;
         break;
-      case types.LOGIN_REQUESTED:
-        draft.loading = true;
-        draft.isAuthenticated = false;
-        draft.user = action.payload;
-        break;
       case types.LOGIN_SUCCESS:
       case types.REGISTER_SUCCESS:
+        localStorage.setItem('token', draft.user.id);
         draft.loading = false;
         draft.isAuthenticated = true;
         break;
