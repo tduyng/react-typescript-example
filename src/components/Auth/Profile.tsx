@@ -6,6 +6,8 @@ import {
   EllipsisOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
+import { Link, useHistory } from 'react-router-dom';
+import { PATH } from 'src/constants/paths';
 const { Meta } = Card;
 
 const mapStateToProps = (state: AppState) => ({
@@ -18,11 +20,16 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 const _Profile = (props: Props) => {
   const { user } = props;
+  const history = useHistory();
+  const onSetting = () => {
+    history.push(PATH.HOME);
+  };
   return (
     <div className="mt-1">
       <Row>
         <Col span={8} offset={10}>
           <Card
+            hoverable
             style={{ width: 350 }}
             cover={
               <img
@@ -31,7 +38,7 @@ const _Profile = (props: Props) => {
               />
             }
             actions={[
-              <SettingOutlined key="setting" />,
+              <SettingOutlined key="setting" onClick={() => onSetting()} />,
               <EditOutlined key="edit" />,
               <EllipsisOutlined key="ellipsis" />,
             ]}
