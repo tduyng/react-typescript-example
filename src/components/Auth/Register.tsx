@@ -6,9 +6,9 @@ import { useHistory, Link } from 'react-router-dom';
 import { register } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
-const mapStateToProps = state => ({
-  loading: state.loading,
-  isAuthenticated: state.isAuthenticated,
+const mapStateToProps = (state: AppState) => ({
+  loading: state.auth.loading,
+  isAuthenticated: state.app.isAuthenticated,
 });
 const mapDispatchToProps = {
   register,
@@ -33,6 +33,9 @@ const _Register = (props: Props) => {
       }
     }
   };
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
   return (
     <div className="container">
       <div className="login-form-wrap">
@@ -48,6 +51,7 @@ const _Register = (props: Props) => {
           className="login-form"
           initialValues={{ remember: true }}
           onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
         >
           <Form.Item
             name="username"
@@ -89,7 +93,7 @@ const _Register = (props: Props) => {
             </Button>
             <div className="login-form-register-link-wrapper">
               Or{' '}
-              <Link to="/login" className="login-form-register-link">
+              <Link to={PATH.LOGIN} className="login-form-register-link">
                 Log in now!
               </Link>
             </div>

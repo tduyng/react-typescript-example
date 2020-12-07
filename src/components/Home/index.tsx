@@ -1,32 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { GuestLinks } from './GuestLinks';
+import { connect, ConnectedProps } from 'react-redux';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-export const Home = () => {
+const mapStateToProps = (state: AppState) => ({
+  loading: state.auth.loading,
+  isAuthenticated: state.app.isAuthenticated,
+});
+const mapDispatchToProps = {};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+interface Props extends ConnectedProps<typeof connector> {}
+
+const _Home = (props: Props) => {
+  const { loading, isAuthenticated } = props;
   return (
-    <div className="homepage">
-      <div className="home-overlay">
-        <div className="container homepage-inner">
-          <div className="home-content">
-            <h1>React Typescript Template</h1>
-            <p>Please login with account & password below.</p>
-            <p className="home-text-light">
-              Account:
-              <span> admin</span>
-            </p>
-            <p className="home-text-light">
-              Password: <span> 123456</span>
-            </p>
-            <div className="home-button-wrap">
-              <Button type="primary" size="large">
-                <Link to="/login" className="button-login-link">
-                  Go To Login Page
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>{!loading && isAuthenticated ? <div>Hi there!</div> : <GuestLinks />}</>
   );
 };
+
+const Home = connector(_Home);
+export { Home };

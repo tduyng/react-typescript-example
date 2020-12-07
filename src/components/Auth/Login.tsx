@@ -6,9 +6,9 @@ import { useHistory, Link } from 'react-router-dom';
 import { login } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
-const mapStateToProps = state => ({
-  loading: state.loading,
-  isAuthenticated: state.isAuthenticated,
+const mapStateToProps = (state: AppState) => ({
+  loading: state.auth.loading,
+  isAuthenticated: state.app.isAuthenticated,
 });
 const mapDispatchToProps = {
   login,
@@ -36,6 +36,7 @@ const _Login = (props: Props) => {
       }
     }
   };
+
   return (
     <div className="container">
       <div className="login-form-wrap">
@@ -86,13 +87,12 @@ const _Login = (props: Props) => {
               type="primary"
               htmlType="submit"
               className="login-form-button"
-              loading={loading}
             >
               Log in
             </Button>
             <div className="login-form-register-link-wrapper">
               Or{' '}
-              <Link to="/signup" className="login-form-register-link">
+              <Link to={PATH.REGISTER} className="login-form-register-link">
                 Register now!
               </Link>
             </div>

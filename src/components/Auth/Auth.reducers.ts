@@ -15,7 +15,7 @@ const initialState = {
   user: userType,
 };
 
-export const loginReducer = (
+export const authReducer = (
   state = initialState,
   action: { type: any; payload: WritableDraft<IUser> },
 ) =>

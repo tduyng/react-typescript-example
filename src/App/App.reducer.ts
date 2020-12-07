@@ -1,10 +1,12 @@
 import * as types from './App.constants';
-import { LOGIN_SUCCESS } from 'src/components/Auth/Auth.constants';
+import {
+  LOGIN_SUCCESS,
+  REGISTER_SUCCESS,
+} from 'src/components/Auth/Auth.constants';
 import produce from 'immer';
 
 const initialState = {
   isAuthenticated: false,
-  closeSideNav: false,
 };
 
 export const AppReducer = (state = initialState, action: { type: any }) =>
@@ -15,10 +17,8 @@ export const AppReducer = (state = initialState, action: { type: any }) =>
         draft.isAuthenticated = false;
         break;
       case LOGIN_SUCCESS:
+      case REGISTER_SUCCESS:
         draft.isAuthenticated = true;
-        break;
-      case types.CLOSE_SIDE_NAV:
-        draft.closeSideNav = !state.closeSideNav;
         break;
       default:
         return state;
