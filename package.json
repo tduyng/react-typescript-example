@@ -19,7 +19,6 @@
     "@types/styled-components": "^5.1.4",
     "antd": "^4.9.2",
     "concurrently": "^5.3.0",
-    "immer": "^8.0.0",
     "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

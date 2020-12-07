@@ -17,6 +17,12 @@
       "username": "alan",
       "email": "alan@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "38550566-e1c6-40c2-a616-8ea74189f677",
+      "username": "felix",
+      "email": "felix@gmail.com",
+      "password": "123456"
     }
   ],
   "products": []

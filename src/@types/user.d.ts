@@ -18,3 +18,8 @@ interface IUser {
   email?: string;
   password: string;
 }
+
+interface DispatchAuth {
+  type: string;
+  payload?: any;
+}

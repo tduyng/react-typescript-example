@@ -7,8 +7,7 @@ import { login } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = (state: AppState) => ({
-  loading: state.auth.loading,
-  isAuthenticated: state.app.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 const mapDispatchToProps = {
   login,
@@ -19,21 +18,19 @@ interface Props extends ConnectedProps<typeof connector> {}
 const _Login = (props: Props) => {
   //  eslint-disable-next-line
   const [error, setError] = useState('');
-  const { login, loading } = props;
+  const { login } = props;
   const history = useHistory();
 
   const onFinish = async formData => {
     const { username, password } = formData;
-    if (!loading) {
-      const payload = { username, password };
-      try {
-        await login(payload);
-        message.success('Login successfully');
-        history.push(PATH.HOME);
-      } catch (error) {
-        message.error(error.message);
-        setError(error.payload.message);
-      }
+    const payload = { username, password };
+    try {
+      await login(payload);
+      message.success('Login successfully');
+      history.push(PATH.HOME);
+    } catch (error) {
+      message.error(error.message);
+      setError(error.payload.message);
     }
   };
 

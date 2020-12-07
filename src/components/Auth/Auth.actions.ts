@@ -1,9 +1,5 @@
 import * as types from './Auth.constants';
 
-export const loginRequested = () => ({
-  type: types.LOGIN_REQUESTED,
-});
-
 export const loginSuccess = (payload: IUser) => ({
   type: types.LOGIN_SUCCESS,
   payload,
@@ -22,7 +18,7 @@ export const authError = () => ({
   type: types.AUTH_ERROR,
 });
 
-export const logout = () => ({
+export const logoutSuccess = () => ({
   type: types.LOGOUT,
 });
 

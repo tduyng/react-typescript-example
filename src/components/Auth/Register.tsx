@@ -7,8 +7,7 @@ import { register } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = (state: AppState) => ({
-  loading: state.auth.loading,
-  isAuthenticated: state.app.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 const mapDispatchToProps = {
   register,
@@ -19,18 +18,16 @@ interface Props extends ConnectedProps<typeof connector> {}
 const _Register = (props: Props) => {
   // eslint-disable-next-line
   const [error, setError] = useState('');
-  const { register, loading } = props;
+  const { register } = props;
   const history = useHistory();
 
   const onFinish = async formData => {
-    if (!loading) {
-      try {
-        await register(formData);
-        message.success('Register successfully');
-        history.push(PATH.HOME);
-      } catch (error) {
-        setError(error.payload.message);
-      }
+    try {
+      await register(formData);
+      message.success('Register successfully');
+      history.push(PATH.HOME);
+    } catch (error) {
+      setError(error.payload.message);
     }
   };
   const onFinishFailed = errorInfo => {

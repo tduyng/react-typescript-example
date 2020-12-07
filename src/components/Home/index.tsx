@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state: AppState) => ({
   loading: state.auth.loading,
-  isAuthenticated: state.app.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 const mapDispatchToProps = {};
 
