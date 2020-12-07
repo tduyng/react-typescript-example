@@ -1,0 +1,73 @@
+$primary-color: #1890ff;
+$dark-color: #111;
+$light-color: #f4f4f4;
+$white-color: #fff;
+$danger-color: #e23c39;
+$success-color: #70c040;
+$warning-color: #efaf41;
+
+$max-width: 1200px;
+$heightHeader: 60px;
+$heightFooter: 150px;
+
+//Margin & Padding
+$spaceamounts: (1, 2, 3, 4, 5);
+@each $space in $spaceamounts {
+  // All around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+  // Vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  // Horizontal margin
+  .mx-#{$space} {
+    margin: 0 #{$space}rem;
+  }
+  // Margin-left
+  .ml-#{$space} {
+    margin-left: #{$space}rem;
+  }
+  // Margin-right
+  .mr-#{$space} {
+    margin-right: #{$space}rem;
+  }
+  // Margin-top
+  .mt-#{$space} {
+    margin-top: #{$space}rem;
+  }
+  // Margin-right
+  .mb-#{$space} {
+    margin-bottom: #{$space}rem;
+  }
+
+  // All around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  // Vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+  // Horizontal padding
+  .px-#{$space} {
+    padding: 0 #{$space}rem;
+  }
+  // padding-left
+  .mp-#{$space} {
+    padding-left: #{$space}rem;
+  }
+  // padding-right
+  .pr-#{$space} {
+    padding-right: #{$space}rem;
+  }
+  // padding-top
+  .pt-#{$space} {
+    padding-top: #{$space}rem;
+  }
+  // Margin-right
+  .pb-#{$space} {
+    padding-bottom: #{$space}rem;
+  }
+}

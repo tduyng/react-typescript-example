@@ -1,0 +1,61 @@
+.static-pages-section {
+  margin: 5rem auto 1rem auto;
+}
+
+/* 
+contact
+-------
+*/
+
+.block .ant-form {
+  max-width: 640px;
+  margin: auto;
+}
+
+.block .ant-form textarea {
+  min-height: 120px;
+  height: 120px;
+}
+.block-title {
+  text-align: center;
+  margin: auto;
+  max-width: 500px;
+  position: relative;
+  padding: 0 0 20px;
+  margin-bottom: 40px;
+}
+
+.block-title:after {
+  transform: translateX(-50%);
+  content: '';
+  background: #1890ff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 3px;
+  width: 50px;
+}
+
+.block-title h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+/* 
+demo
+-------
+*/
+.demo-content {
+  margin: auto;
+  text-align: center;
+}
+
+.demo-button-play:before {
+  content: '';
+  background: rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

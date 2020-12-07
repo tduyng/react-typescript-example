@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "idtest",
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "d18eca47-e1fb-4259-b2b7-9cf2ead4ba29",
+      "username": "tienduy",
+      "email": "tienduy@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "d3dda531-1893-4ffa-972e-c3d55541f7d5",
+      "username": "alan",
+      "email": "alan@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "products": []
+}

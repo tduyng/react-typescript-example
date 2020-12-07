@@ -1,0 +1,139 @@
+.ant-layout-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+.main-layout .ant-layout-header {
+  background: #fff;
+  padding: 0;
+  height: $heightHeader;
+  line-height: 1.6;
+}
+.navbar-section {
+  border-bottom: solid 1px #e8e8e8;
+  overflow: auto;
+  box-shadow: 0 0 30px #f3f1f1;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+
+  .ant-menu-item {
+    padding: 0px 5px;
+  }
+  .ant-menu-submenu-title {
+    padding: 10px 20px;
+  }
+  .ant-menu-item a,
+  .ant-menu-submenu-title a {
+    padding: 10px 15px;
+  }
+  .ant-menu-horizontal {
+    border-bottom: none;
+  }
+}
+.navbar-left-menu {
+  float: left;
+}
+.navbar-right-menu {
+  float: right;
+}
+// .navbar .ant-menu li.ant-menu-item,
+// .navbar .ant-menu li.ant-menu-item-selected {
+//   border: 0 !important;
+// }
+
+// .navbar .ant-menu li.ant-menu-item-selected,
+// .navbar .ant-menu li.ant-menu-item:hover {
+//   color: $primary-color;
+//   background: none;
+// }
+
+.navbar-logo {
+  width: 150px;
+  float: left;
+  a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 16px 20px;
+    text-transform: uppercase;
+  }
+}
+.navbar-menu {
+  width: calc(100% - 150px);
+  float: left;
+}
+
+// Button bars
+.navbar .navbar-btnBars {
+  float: right;
+  height: 32px;
+  padding: 6px;
+  margin-top: 8px;
+  display: none;
+  background: none;
+}
+.navbar .navbar-btnBars-span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: $primary-color;
+  position: relative;
+  &:after,
+  &:before {
+    content: attr(x);
+    width: 20px;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    height: 2px;
+    background: $primary-color;
+  }
+  &:after {
+    top: auto;
+    bottom: -6px;
+  }
+  & > span {
+    display: block;
+  }
+}
+
+.ant-drawer-body {
+  padding: 0;
+}
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item,
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
+  display: inline-block;
+  width: 100%;
+}
+
+.ant-drawer-body .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .navbar .navbar-btnBars {
+    display: inline-block;
+  }
+
+  .navbar .navbar-left-menu,
+  .navbar .navbar-right-menu {
+    display: none;
+  }
+
+  .navbar .navbar-logo a {
+    margin-left: -20px;
+    padding: 10px 20px;
+  }
+
+  .navbar .ant-menu-item,
+  .navbar .ant-menu-submenu-title {
+    padding: 1px 20px;
+  }
+}
