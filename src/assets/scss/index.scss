@@ -1,6 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import 'config';
+@import 'fonts';
+@import 'header';
+@import 'footer';
+@import 'home';
+@import 'staticPages';
+@import 'responsive';
+@import 'login';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 15px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
+.ant-layout {
+  background: #fff;
+}
+.ant-layout-content {
+  background-color: #fff;
+  min-height: calc(100vh - #{$heightFooter} - #{$heightHeader}) !important;
+  padding-bottom: 2rem;
+  overflow: auto;
+}
+.ant-layout.main-layout {
+  background-color: #fff;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
 }

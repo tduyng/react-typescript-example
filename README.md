@@ -20,7 +20,7 @@ To use this template
   $ yarn build
   # or npm run start / npm run build
   ```
-- Start coding
+- Start codinggs
 Demo deploy: [reactts-boilerplate.netlify.app](https://reactts-boilerplate.netlify.app/)
 Login
 username: admin
@@ -160,7 +160,7 @@ password: 123456
   - **App**: component App
   - **assets**: images, videos, files, …
   - **components**: contains folders components
-  - **constansts**: contants, enum
+  - **constansts**: constant, enum
   - **guards**: routes demands authenticates
   - **helpers**: functions helpers
   - **hooks**: contains hooks using

@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "global": "^4.4.0",
-    "immer": "^7.0.14",
-    "netlify-cli": "^2.68.6",
+    "@ant-design/icons": "^4.3.0",
+    "@types/axios": "^0.14.0",
+    "antd": "^4.8.6",
+    "concurrently": "^5.3.0",
+    "immer": "^8.0.0",
+    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -16,14 +17,15 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
-    "typescript": "~4.0.5"
+    "typescript": "~4.0.5",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
     "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.7",
+    "@types/node": "^14.14.8",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "@types/react-redux": "^7.1.11",
@@ -37,7 +39,9 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "json-server": "json-server --watch server/db/db.json --routes server/routes.json --port 5000",
+    "dev": "react-scripts start",
+    "start": "concurrently \"yarn json-server\" \"yarn dev\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
