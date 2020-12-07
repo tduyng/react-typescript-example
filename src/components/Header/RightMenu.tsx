@@ -40,7 +40,7 @@ const _RightMenu = (props: Props) => {
     <Menu mode={md ? 'horizontal' : 'inline'}>
       <Menu.Item key="menukey-profile">
         <NavLink className="navbar-item primary" to={PATH.PROFILE}>
-          Hi {user.username}
+          Hi <strong>{user.username}</strong>
         </NavLink>
       </Menu.Item>
       <Menu.Item key="menukey-login">
