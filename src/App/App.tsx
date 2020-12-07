@@ -15,13 +15,13 @@ const _App = (props: Props) => {
   useEffect(() => {
     const { loadUser, logout } = props;
     // check for token in LS
-    if (localStorage.token) {
+    if (localStorage.user) {
       loadUser();
     }
 
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
-      if (!localStorage.token) logout();
+      if (!localStorage.user) logout();
     });
   }, []);
   return <Routes />;

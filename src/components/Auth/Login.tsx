@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 import { login } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
@@ -18,22 +18,22 @@ interface Props extends ConnectedProps<typeof connector> {}
 const _Login = (props: Props) => {
   //  eslint-disable-next-line
   const [error, setError] = useState('');
-  const { login } = props;
-  const history = useHistory();
+  const { login, isAuthenticated } = props;
 
   const onFinish = async formData => {
     const { username, password } = formData;
     const payload = { username, password };
     try {
       await login(payload);
-      message.success('Login successfully');
-      history.push(PATH.HOME);
     } catch (error) {
       message.error(error.message);
       setError(error.payload.message);
     }
   };
 
+  if (isAuthenticated) {
+    return <Redirect to={PATH.HOME} />;
+  }
   return (
     <div className="container">
       <div className="login-form-wrap">

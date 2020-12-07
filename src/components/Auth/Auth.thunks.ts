@@ -4,60 +4,64 @@ import * as actions from './Auth.actions';
 import { v4 as uuid } from 'uuid';
 
 export const loadUser = () => async dispatch => {
-  const tokenId = localStorage.getItem('token');
+  const userJson = localStorage.getItem('user') || '{}';
+  const user = JSON.parse(userJson) as IUser;
+  const id = user.id;
   console.log('Load user running!');
-  if (!tokenId) {
-    return dispatch(actions.authError);
+  console.log('User from loadUser', user);
+  if (!id) {
+    return dispatch(actions.authError());
   }
   try {
-    const res = await axios.get(`${URL.baseAPIUrl}/api/users/${tokenId}`);
+    const res = await axios.get(`${URL.baseAPIUrl}/api/users/${id}`);
     console.log('Response', res);
     console.log('Hey loadUser function triggered');
     if (res) {
       return dispatch(actions.userLoaded(res.data));
     }
-    dispatch(actions.authError);
+    return dispatch(actions.authError());
   } catch (error) {
     console.log('Some error loadUser running', error);
-    return dispatch(actions.authError);
+    return dispatch(actions.authError());
   }
 };
 
 export const login = (payload: ReqLogin) => async dispatch => {
   const { username, password } = payload;
+  console.log('Login triggered');
   try {
     const res = await axios.get(`${URL.baseAPIUrl}/api/users`);
     const allUsers = res.data;
 
     let user = allUsers.filter(x => x.username === username)[0];
-    console.log('user', user);
+    console.log('user found  from login', user);
     if (user && user.password === password) {
       dispatch(actions.loginSuccess(user));
       dispatch(loadUser());
       return;
-    } else {
-      console.log('Invalid credentials');
-      return dispatch(actions.loginFailed);
     }
+    return dispatch(actions.loginFailed());
   } catch (error) {
-    return dispatch(actions.loginFailed);
+    return dispatch(actions.loginFailed());
   }
 };
 
 export const register = (payload: ReqLogin) => async dispatch => {
+  console.log('Register triggered');
   try {
     const id = uuid();
-    const newUser = { id, ...payload };
+    const accessToken = id;
+
+    const newUser = { ...payload, id, accessToken };
     await axios.post(`${URL.baseAPIUrl}/api/users`, newUser);
     dispatch(actions.registerSuccess(newUser));
     console.log('Resgister success', newUser);
-    const all = await axios.get(`${URL.baseAPIUrl}/api/users`);
-    console.log('All users', all);
     dispatch(loadUser());
   } catch (error) {
-    return dispatch(actions.registerFailed);
+    return dispatch(actions.registerFailed());
   }
 };
 export const logout = () => async dispatch => {
-  return dispatch(actions.logoutSuccess);
+  console.log('Logout triggered');
+  return dispatch(actions.logoutSuccess());
 };

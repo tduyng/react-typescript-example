@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 import { register } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
@@ -18,14 +18,12 @@ interface Props extends ConnectedProps<typeof connector> {}
 const _Register = (props: Props) => {
   // eslint-disable-next-line
   const [error, setError] = useState('');
-  const { register } = props;
+  const { register, isAuthenticated } = props;
   const history = useHistory();
 
   const onFinish = async formData => {
     try {
       await register(formData);
-      message.success('Register successfully');
-      history.push(PATH.HOME);
     } catch (error) {
       setError(error.payload.message);
     }
@@ -33,6 +31,10 @@ const _Register = (props: Props) => {
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
+
+  if (isAuthenticated) {
+    return <Redirect to={PATH.HOME} />;
+  }
   return (
     <div className="container">
       <div className="login-form-wrap">

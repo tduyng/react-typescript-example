@@ -9,8 +9,8 @@ import { PATH } from 'src/constants/paths';
 const { useBreakpoint } = Grid;
 
 const mapStateToProps = (state: AppState) => ({
-  loading: state.auth.loading,
   isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user as IUser,
 });
 const mapDispatchToProps = {
   logout,
@@ -20,7 +20,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
 const _RightMenu = (props: Props) => {
-  const { loading, isAuthenticated, logout } = props;
+  const { isAuthenticated, logout, user } = props;
   const { md } = useBreakpoint();
   const guestLinks = (
     <Menu mode={md ? 'horizontal' : 'inline'}>
@@ -38,20 +38,26 @@ const _RightMenu = (props: Props) => {
   );
   const authLinks = (
     <Menu mode={md ? 'horizontal' : 'inline'}>
+      <Menu.Item key="menukey-profile">
+        <NavLink className="navbar-item primary" to={PATH.PROFILE}>
+          Hi {user.username}
+        </NavLink>
+      </Menu.Item>
       <Menu.Item key="menukey-login">
         <NavLink
           className="navbar-item primary"
           to={PATH.HOME}
-          onClick={logout}
+          onClick={() => logout()}
         >
           <span>
-            <LoginOutlined /> Log Out
+            <LoginOutlined />
+            Log Out
           </span>
         </NavLink>
       </Menu.Item>
     </Menu>
   );
-  return <div>{!loading && isAuthenticated ? authLinks : guestLinks}</div>;
+  return <>{isAuthenticated ? authLinks : guestLinks}</>;
 };
 
 const RightMenu = connector(_RightMenu);

@@ -47,7 +47,6 @@ img {
 .ant-layout-content {
   background-color: #fff;
   min-height: calc(100vh - #{$heightFooter} - #{$heightHeader}) !important;
-  padding-bottom: 2rem;
   overflow: auto;
 }
 .ant-layout.main-layout {

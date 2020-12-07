@@ -5,11 +5,12 @@ let userType: IUser = {
   username: '',
   email: undefined,
   password: '',
+  accessToken: '',
 };
 const initialState = {
   loading: true,
   isAuthenticated: false,
-  token: localStorage.getItem('token'),
+  token: null,
   user: userType,
 };
 
@@ -22,22 +23,30 @@ export const authReducer = (state = initialState, action: ActionRedux) => {
         isAuthenticated: true,
         loading: false,
         token: payload.id,
-        user: payload.user,
+        user: payload,
       };
     case types.LOGIN_SUCCESS:
     case types.REGISTER_SUCCESS:
-      localStorage.setItem('token', payload.id);
+      localStorage.setItem('user', JSON.stringify(payload));
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
         loading: false,
+        user: payload,
       };
     case types.LOGIN_FAILED:
     case types.AUTH_ERROR:
-    case types.LOGOUT:
     case types.REGISTER_FAILED:
-      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+      };
+    case types.LOGOUT:
+      localStorage.removeItem('user');
       return {
         ...state,
         token: null,

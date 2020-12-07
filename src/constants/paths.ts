@@ -9,4 +9,5 @@ export const PATH = {
   DEMO2: '/demo2',
   FEATURE1: '/feature1',
   FEATURE2: '/feature2',
+  PROFILE: '/profile',
 };

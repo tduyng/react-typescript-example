@@ -1,5 +1,5 @@
 .ant-layout-header {
-  position: fixed;
+  position: relative;
   left: 0;
   right: 0;
   z-index: 9;
@@ -13,22 +13,22 @@
 .navbar-section {
   border-bottom: solid 1px #e8e8e8;
   overflow: auto;
-  box-shadow: 0 0 30px #f3f1f1;
+  box-shadow: 0 0 2px #f3f1f1;
 }
 .navbar {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0;
 
   .ant-menu-item {
-    padding: 0px 5px;
+    padding: 0px 2px;
   }
   .ant-menu-submenu-title {
-    padding: 10px 20px;
+    padding: 4px;
   }
   .ant-menu-item a,
   .ant-menu-submenu-title a {
-    padding: 10px 15px;
+    padding: 10px 0px;
   }
   .ant-menu-horizontal {
     border-bottom: none;
