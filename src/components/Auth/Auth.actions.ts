@@ -4,14 +4,13 @@ export const loginRequested = () => ({
   type: types.LOGIN_REQUESTED,
 });
 
-export const loginSuccess = payload => ({
+export const loginSuccess = (payload: IUser) => ({
   type: types.LOGIN_SUCCESS,
   payload,
 });
 
-export const loginFailed = payload => ({
+export const loginFailed = () => ({
   type: types.LOGIN_FAILED,
-  payload,
 });
 
 export const userLoaded = payload => ({
@@ -32,7 +31,6 @@ export const registerSuccess = payload => ({
   payload,
 });
 
-export const registerFailed = payload => ({
+export const registerFailed = () => ({
   type: types.REGISTER_FAILED,
-  payload,
 });

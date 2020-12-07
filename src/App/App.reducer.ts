@@ -7,7 +7,7 @@ const initialState = {
   closeSideNav: false,
 };
 
-export const AppReducer = (state = initialState, action) =>
+export const AppReducer = (state = initialState, action: { type: any }) =>
   produce(state, draft => {
     switch (action.type) {
       case types.LOGOUT:

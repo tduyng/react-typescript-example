@@ -1,5 +1,6 @@
 import * as types from './Auth.constants';
 import produce from 'immer';
+import { WritableDraft } from 'immer/dist/internal';
 
 let userType: IUser = {
   id: '',
@@ -14,7 +15,10 @@ const initialState = {
   user: userType,
 };
 
-export const loginReducer = (state = initialState, action) =>
+export const loginReducer = (
+  state = initialState,
+  action: { type: any; payload: WritableDraft<IUser> },
+) =>
   produce(state, draft => {
     switch (action.type) {
       case types.USER_LOADED:
