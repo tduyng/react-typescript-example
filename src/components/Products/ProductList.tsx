@@ -1,32 +1,52 @@
-import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Table, Image } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
+import { getProducts } from './Product.thunks';
+import imgDefault from 'src/assets/images/products/apple/iphone-8-plus.jpg';
 
-export const ProductList = () => {
+const mapStateToProps = (state: AppState) => ({
+  loading: state.products.loading,
+  products: state.products.products,
+});
+
+const mapDispatchToProps = {
+  getProducts,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+interface Props extends ConnectedProps<typeof connector> {}
+
+export const _ProductList = (props: Props) => {
   const history = useHistory();
-  const [allData, setAllData] = useState([]);
+
+  const { products, getProducts } = props;
 
   const columns = [
     {
       title: 'Preview',
       dataIndex: 'image_url',
-      render: (image_url, row) => renderImgProduct(row.id, image_url),
+      render: (image_url, row) => renderImgProduct(image_url, row),
+      key: 'image_url',
     },
     {
       title: 'Name',
       dataIndex: 'name',
-      render: (name, row) => showProduct(row.id, name),
+      render: (name, row) => showProduct(name, row),
+      key: 'name',
     },
     {
       title: 'Brand',
       dataIndex: 'brand',
+      key: 'brand',
     },
   ];
   const showProduct = (name, row) => {
     return (
       <Link
+        key={row.id}
         to={`${PATH.PRODUCTS}/${row.id}`}
         style={{ textTransform: 'uppercase' }}
       >
@@ -35,17 +55,44 @@ export const ProductList = () => {
     );
   };
   const renderImgProduct = (image_url, row) => {
-    return (
-      <Link to={`${PATH.PRODUCTS}/${row.id}`}>
-        <Image src={image_url} alt="Image_sp" />
-      </Link>
-    );
+    if (row.id) {
+      return (
+        <Link to={`${PATH.PRODUCTS}/${row.id}`} key={row.id}>
+          <Image src={image_url} alt="Image_sp" style={{ maxWidth: '100px' }} />
+        </Link>
+      );
+    }
   };
 
-  const data = [{}];
   const addNewProduct = () => {
     history.push(PATH.PRODUCT_NEW);
   };
+
+  let data = [{}];
+  useEffect(() => {
+    getProducts();
+  }, []);
+  products.map((product: Product, index: number) => {
+    if (index === 0) {
+      data = [
+        {
+          key: index,
+          id: product.id,
+          name: product.name,
+          brand: product.brand,
+          image_url: product.image_url,
+        },
+      ];
+    } else {
+      data.push({
+        key: index,
+        id: product.id,
+        name: product.name,
+        brand: product.brand,
+        image_url: product.image_url,
+      });
+    }
+  });
 
   return (
     <div className="static-pages-section">
@@ -64,7 +111,7 @@ export const ProductList = () => {
           </Row>
           <Row gutter={[40, 0]}>
             <Col span={24}>
-              <Table columns={columns} dataSource={data} />
+              <Table columns={columns} dataSource={data} rowKey="id" />
             </Col>
           </Row>
         </div>
@@ -72,3 +119,5 @@ export const ProductList = () => {
     </div>
   );
 };
+
+export const ProductList = connector(_ProductList);

@@ -27,49 +27,49 @@
   "products": [{
       "id": "iphone-8-plus",
       "name": "Iphone 8 Plus",
-      "image_url": "src/assets/images/products/apple/iphone-8-plus",
+      "image_url": "./images/iphone-8-plus.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-11-pro-max",
       "name": "Iphone 11 Pro Max",
-      "image_url": "src/assets/images/products/apple/iphone-11-pro-max",
+      "image_url": "./images/iphone-11-pro-max.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-11-pro",
       "name": "Iphone 11 Pro",
-      "image_url": "src/assets/images/products/apple/iphone-11-pro",
+      "image_url": "./images/iphone-11-pro.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-11",
       "name": "Iphone 11",
-      "image_url": "src/assets/images/products/apple/iphone11",
+      "image_url": "./images/iphone-11.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-se",
       "name": "Iphone SE",
-      "image_url": "src/assets/images/products/apple/iphone-se",
+      "image_url": "./images/iphone-se.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-x",
       "name": "Iphone X",
-      "image_url": "src/assets/images/products/apple/iphone-x",
+      "image_url": "./images/iphone-x.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-xr",
       "name": "Iphone XR",
-      "image_url": "src/assets/images/products/apple/iphone-xr",
+      "image_url": "./images/iphone-xr.jpg",
       "brand": "APPLE"
     },
     {
       "id": "iphone-xs-max",
       "name": "Iphone XS Max",
-      "image_url": "src/assets/images/products/apple/iphone-xs-max",
+      "image_url": "./images/iphone-xs-max.jpg",
       "brand": "APPLE"
     }
   ]
