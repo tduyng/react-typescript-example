@@ -11,8 +11,8 @@ export const NotFound = () => {
   return (
     <div className="static-pages-section">
       <div className="container">
-        <div className="block-title">
-          <h2>
+        <div className="block-title" style={{ color: '#fa8c16' }}>
+          <h2 style={{ color: '#fa8c16' }}>
             <ExclamationOutlined />
             Page Not Found
           </h2>

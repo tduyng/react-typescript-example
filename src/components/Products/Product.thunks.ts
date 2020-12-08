@@ -19,7 +19,6 @@ export const getProducts = () => async dispatch => {
 
 export const getProduct = id => async dispatch => {
   try {
-    console.log('Get Product triggered');
     const res = await axios.get(`${URL.baseAPIUrl}/api/products/${id}`);
     const product = res.data as Product;
     dispatch(actions.getProductSuccess(product));

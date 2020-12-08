@@ -10,4 +10,5 @@ const _NotFoundPage = () => {
   );
 };
 const NotFoundPage = React.memo(_NotFoundPage);
+export { NotFoundPage };
 export default NotFoundPage;
