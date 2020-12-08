@@ -1,11 +1,10 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Table, Image } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { getProducts } from './Product.thunks';
-import imgDefault from 'src/assets/images/products/apple/iphone-8-plus.jpg';
 
 const mapStateToProps = (state: AppState) => ({
   loading: state.products.loading,

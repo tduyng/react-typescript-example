@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 import { AuthenticatedGuard } from 'src/guards/AuthenticatedGuard';
@@ -24,7 +24,7 @@ export const AuthRoutes = () => {
       />
       <AuthenticatedGuard
         exact
-        path={PATH.PRODUCTS + '/:id'}
+        path="/products/:id"
         component={() => (
           <Suspense fallback={<Loading />}>
             <ProductItem />
