@@ -24,3 +24,10 @@ interface ResGetProductItemApi extends Res {
 interface ResGetProductItem extends ActionRedux {
   payload: ResGetProductItemApi;
 }
+
+enum PhoneMark {
+  APPLE,
+  SAMSUM,
+  XIAOMI,
+  HUEWEI,
+}

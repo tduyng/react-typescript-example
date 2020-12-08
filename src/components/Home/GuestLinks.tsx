@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PATH } from 'src/constants/paths';
 
 export const GuestLinks = () => {
   return (
@@ -19,7 +20,7 @@ export const GuestLinks = () => {
             </p>
             <div className="home-button-wrap">
               <Button type="primary" size="large">
-                <Link to="/login" className="button-login-link">
+                <Link to={PATH.LOGIN} className="button-login-link">
                   Go To Login Page
                 </Link>
               </Button>

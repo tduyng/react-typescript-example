@@ -1,8 +1,7 @@
 import React from 'react';
-import { GuestLinks } from './GuestLinks';
 import { connect, ConnectedProps } from 'react-redux';
-import { Button } from 'antd';
-import { Link } from 'react-router-dom';
+import { GuestLinks } from './GuestLinks';
+import { AuthLinks } from './AuthLinks';
 
 const mapStateToProps = (state: AppState) => ({
   loading: state.auth.loading,
@@ -15,9 +14,7 @@ interface Props extends ConnectedProps<typeof connector> {}
 
 const _Home = (props: Props) => {
   const { loading, isAuthenticated } = props;
-  return (
-    <>{!loading && isAuthenticated ? <div>Hi there!</div> : <GuestLinks />}</>
-  );
+  return <>{!loading && isAuthenticated ? <AuthLinks /> : <GuestLinks />}</>;
 };
 
 const Home = connector(_Home);

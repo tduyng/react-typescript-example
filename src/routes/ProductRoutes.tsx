@@ -15,7 +15,7 @@ export const AuthRoutes = () => {
     <Switch>
       <AuthenticatedGuard
         exact
-        path={PATH.PROFILE}
+        path={PATH.PRODUCTS}
         component={() => (
           <Suspense fallback={<Loading />}>
             <ProductList />
@@ -24,7 +24,7 @@ export const AuthRoutes = () => {
       />
       <AuthenticatedGuard
         exact
-        path={PATH.PROFILE}
+        path={PATH.PRODUCTS + '/:id'}
         component={() => (
           <Suspense fallback={<Loading />}>
             <ProductItem />

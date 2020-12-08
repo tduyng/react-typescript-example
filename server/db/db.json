@@ -1,6 +1,5 @@
 {
-  "users": [
-    {
+  "users": [{
       "id": "idtest",
       "username": "tester",
       "email": "tester@gmail.com",
@@ -25,5 +24,53 @@
       "password": "123456"
     }
   ],
-  "products": []
+  "products": [{
+      "id": "iphone-8-plus",
+      "name": "Iphone 8 Plus",
+      "image_url": "src/assets/images/products/apple/iphone-8-plus",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-11-pro-max",
+      "name": "Iphone 11 Pro Max",
+      "image_url": "src/assets/images/products/apple/iphone-11-pro-max",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-11-pro",
+      "name": "Iphone 11 Pro",
+      "image_url": "src/assets/images/products/apple/iphone-11-pro",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-11",
+      "name": "Iphone 11",
+      "image_url": "src/assets/images/products/apple/iphone11",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-se",
+      "name": "Iphone SE",
+      "image_url": "src/assets/images/products/apple/iphone-se",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-x",
+      "name": "Iphone X",
+      "image_url": "src/assets/images/products/apple/iphone-x",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-xr",
+      "name": "Iphone XR",
+      "image_url": "src/assets/images/products/apple/iphone-xr",
+      "brand": "APPLE"
+    },
+    {
+      "id": "iphone-xs-max",
+      "name": "Iphone XS Max",
+      "image_url": "src/assets/images/products/apple/iphone-xs-max",
+      "brand": "APPLE"
+    }
+  ]
 }
