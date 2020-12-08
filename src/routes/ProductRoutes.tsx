@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 import { AuthenticatedGuard } from 'src/guards/AuthenticatedGuard';
+import { ErrorRoutes } from './ErrorRoutes';
 const ProductList = lazy(
   () => import('src/pages/ProductPages/ProductListPage'),
 );
@@ -10,7 +11,7 @@ const ProductItem = lazy(
   () => import('src/pages/ProductPages/ProductItemPage'),
 );
 
-export const AuthRoutes = () => {
+export const ProductRoutes = () => {
   return (
     <Switch>
       <AuthenticatedGuard
@@ -24,13 +25,14 @@ export const AuthRoutes = () => {
       />
       <AuthenticatedGuard
         exact
-        path="/products/:id"
+        path={PATH.PRODUCTS + '/:id'}
         component={() => (
           <Suspense fallback={<Loading />}>
             <ProductItem />
           </Suspense>
         )}
       />
+      <ErrorRoutes />
     </Switch>
   );
 };
