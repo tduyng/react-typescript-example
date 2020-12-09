@@ -54,7 +54,7 @@ export const _ProductForm = (props: Props) => {
       <div id="main-contact" className="block">
         <div className="container">
           <div className="block-title">
-            <h2>{edit ? 'Create product' : 'Update product'}</h2>
+            <h2>{edit ? 'Update product' : 'Create product'}</h2>
           </div>
           <Form
             {...layout}
