@@ -23,7 +23,7 @@ const _App = (props: Props) => {
     window.addEventListener('storage', () => {
       if (!localStorage.user) logout();
     });
-  }, []);
+  }, [props]);
   return <Routes />;
 };
 

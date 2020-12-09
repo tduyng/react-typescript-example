@@ -25,7 +25,7 @@ Demo deploy: [reactts-boilerplate.netlify.app](https://reactts-boilerplate.netli
 
 Login
 ```
-username: admin
+username: tester
 password: 123456
 ```
 
@@ -37,112 +37,123 @@ password: 123456
 ├── package.json
 ├── public
 │   ├── favicon.ico
+│   ├── images
 │   ├── index.html
 │   ├── logo192.png
 │   ├── logo512.png
 │   ├── manifest.json
 │   └── robots.txt
 ├── README.md
+├── server
+│   ├── db
+│   │   └── db.json
+│   └── routes.json
 ├── src
-│   ├── apis
-│   │   ├── product.api.ts
-│   │   └── user.api.ts
 │   ├── App
-│   │   ├── App.actions.ts
-│   │   ├── App.constants.ts
-│   │   ├── App.reducer.ts
 │   │   └── App.tsx
 │   ├── assets
-│   │   ├── fonts
-│   │   │   ├── OpenSans-BoldItalic.ttf
-│   │   │   ├── OpenSans-Bold.ttf
-│   │   │   ├── OpenSans-ExtraBoldItalic.ttf
-│   │   │   ├── OpenSans-ExtraBold.ttf
-│   │   │   ├── OpenSans-Italic.ttf
-│   │   │   ├── OpenSans-LightItalic.ttf
-│   │   │   ├── OpenSans-Light.ttf
-│   │   │   ├── OpenSans-Regular.ttf
-│   │   │   ├── OpenSans-SemiBoldItalic.ttf
-│   │   │   └── OpenSans-SemiBold.ttf
 │   │   ├── images
-│   │   │   ├── home.svg
-│   │   │   ├── list.svg
-│   │   │   └── open-menu.svg
 │   │   └── scss
-│   │       └── index.scss
+│   │       ├── _config.scss
+│   │       ├── _fonts.scss
+│   │       ├── _footer.scss
+│   │       ├── _header.scss
+│   │       ├── _home.scss
+│   │       ├── index.scss
+│   │       ├── _login.scss
+│   │       ├── _responsive.scss
+│   │       └── _staticPages.scss
 │   ├── components
+│   │   ├── Auth
+│   │   │   ├── Auth.actions.ts
+│   │   │   ├── Auth.constants.ts
+│   │   │   ├── Auth.reducers.ts
+│   │   │   ├── Auth.thunks.ts
+│   │   │   ├── Login.tsx
+│   │   │   ├── Profile.tsx
+│   │   │   └── Register.tsx
+│   │   ├── Error
+│   │   │   └── 404.tsx
+│   │   ├── Footer
+│   │   │   └── index.tsx
 │   │   ├── Header
-│   │   │   ├── Header.styles.ts
-│   │   │   └── Header.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── LeftMenu.tsx
+│   │   │   └── RightMenu.tsx
+│   │   ├── Home
+│   │   │   ├── AuthLinks.tsx
+│   │   │   ├── GuestLinks.tsx
+│   │   │   └── index.tsx
 │   │   ├── Loading
-│   │   │   └── Loading.tsx
-│   │   └── SideNav
-│   │       ├── SideNav.styles.ts
-│   │       └── SideNav.tsx
+│   │   │   ├── index.tsx
+│   │   │   └── Loading.styles.ts
+│   │   ├── Products
+│   │   │   ├── Product.actions.ts
+│   │   │   ├── Product.constants.ts
+│   │   │   ├── ProductForm.tsx
+│   │   │   ├── ProductItem.tsx
+│   │   │   ├── ProductList.tsx
+│   │   │   ├── Product.reducers.ts
+│   │   │   └── Product.thunks.ts
+│   │   └── StaticPages
+│   │       ├── About.tsx
+│   │       ├── Contact.tsx
+│   │       ├── Demo.option.1.tsx
+│   │       ├── Demo.option.2.tsx
+│   │       ├── Feature.option.1.tsx
+│   │       └── Feature.option.2.tsx
 │   ├── constants
 │   │   ├── paths.ts
-│   │   └── styles.ts
-│   ├── guards
-│   │   └── AuthenticatedGuard.tsx
-│   ├── helpers
-│   │   └── string.ts
+│   │   ├── products.ts
+│   │   └── urls.ts
 │   ├── hooks
 │   │   └── usePrevious.tsx
 │   ├── index.tsx
-│   ├── layouts
-│   │   └── MainLayout.tsx
-│   ├── logo.svg
 │   ├── pages
-│   │   ├── Home
-│   │   │   └── Home.tsx
-│   │   ├── Login
-│   │   │   ├── Login.actions.ts
-│   │   │   ├── Login.constants.ts
-│   │   │   ├── Login.reducer.ts
-│   │   │   ├── Login.styles.ts
-│   │   │   ├── Login.thunks.ts
-│   │   │   └── Login.tsx
-│   │   └── Product
-│   │       ├── ProductItem
-│   │       │   ├── ProductItem.actions.ts
-│   │       │   ├── ProductItem.constants.ts
-│   │       │   ├── ProductItem.reducer.ts
-│   │       │   ├── ProductItem.thunks.ts
-│   │       │   └── ProductItem.tsx
-│   │       └── ProductList
-│   │           ├── ProductList.actions.ts
-│   │           ├── ProductList.constants.ts
-│   │           ├── ProductList.reducer.ts
-│   │           ├── ProductList.styles.ts
-│   │           ├── ProductList.thunks.ts
-│   │           └── ProductList.tsx
+│   │   ├── AuthPages
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── ProfilePage.tsx
+│   │   │   └── RegisterPage.tsx
+│   │   ├── ErrorPages
+│   │   │   └── 404Pages.tsx
+│   │   ├── HomePages
+│   │   │   └── HomePage.tsx
+│   │   ├── layouts
+│   │   │   └── MainLayout.tsx
+│   │   ├── ProductPages
+│   │   │   ├── ProductEditPage.tsx
+│   │   │   ├── ProductItemPage.tsx
+│   │   │   ├── ProductListPage.tsx
+│   │   │   └── ProductNewPage.tsx
+│   │   └── StaticPages
+│   │       ├── AboutPage.tsx
+│   │       ├── ContactPage.tsx
+│   │       ├── Demo1Page.tsx
+│   │       ├── Demo2Page.tsx
+│   │       ├── Feature1Page.tsx
+│   │       └── Feature2Page.tsx
 │   ├── react-app-env.d.ts
-│   ├── reducer
-│   │   └── reducer.ts
+│   ├── reportWebVitals.ts
 │   ├── routes
-│   │   ├── HomeRoutes.tsx
-│   │   ├── LoginRoutes.tsx
-│   │   ├── ProductRoutes.tsx
-│   │   └── routes.tsx
-│   ├── serviceWorker.ts
+│   │   ├── index.tsx
+│   │   └── PrivateRoute.tsx
 │   ├── setupTests.ts
 │   ├── store
-│   │   └── store.ts
-│   └── @types
-│       ├── action.d.ts
-│       ├── api.d.ts
-│       ├── files.d.ts
-│       ├── product.d.ts
-│       ├── reducer.d.ts
-│       └── user.d.ts
-├── .env
-├── .eslintignore
-├── .eslint
-├── .gitignore
-├── .prettierignore
-├── .prettierrc
+│   │   ├── index.ts
+│   │   └── reducers.ts
+│   ├── @types
+│   │   ├── actions.d.ts
+│   │   ├── alert.d.ts
+│   │   ├── api.d.ts
+│   │   ├── files.d.ts
+│   │   ├── product.d.ts
+│   │   ├── reducer.d.ts
+│   │   └── user.d.ts
+│   └── utils
+│       └── helper.js
 ├── tsconfig.json
 └── yarn.lock
+
 ```
 
 ### Technologies
@@ -150,6 +161,7 @@ password: 123456
   - Styled-Component and CSS Module for CSS
   - Using TypeScript
   - Using Redux, React Hooks, React thunks
+  - Using ant design
   
 ### src folder
   - **@types**: Declare modules, interface, type for TypeScript
@@ -162,12 +174,9 @@ password: 123456
   - **App**: component App
   - **assets**: images, videos, files, …
   - **components**: contains folders components
-  - **constansts**: constant, enum
-  - **guards**: routes demands authenticates
+  - **constants**: constant, enum
   - **helpers**: functions helpers
   - **hooks**: contains hooks using
-  - **layouts**: layouts of projects
   - **pages**: pages of project
-  - **reducer**: reducers files
-  - **routes**: routes of project
-  - **store**: store of Redux
+  - **routes**: private routes and public routes of project
+  - **store**: store of Redux and root reducers

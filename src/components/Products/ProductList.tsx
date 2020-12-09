@@ -78,7 +78,8 @@ export const _ProductList = (props: Props) => {
     getProducts();
   }, [getProducts]);
 
-  products.map((product: Product, index: number) => {
+  // eslint-disable-next-line array-callback-return
+  products.forEach((product: Product, index: number) => {
     if (index === 0) {
       data = [
         {
