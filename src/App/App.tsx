@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { loadUser, logout } from 'src/containers/Auth/Auth.thunks';
+import { loadUser, logout } from 'src/components/Auth/Auth.thunks';
 import { Routes } from 'src/routes';
 
 const mapStateToProps = () => ({});

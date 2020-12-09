@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductItem } from 'src/containers/Products/ProductItem';
+import { ProductItem } from 'src/components/Products/ProductItem';
 import { MainLayout } from 'src/layouts/MainLayout';
 
 const _ProductItemPage = () => {

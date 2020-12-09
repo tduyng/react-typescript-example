@@ -1,5 +1,5 @@
 import React from 'react';
-import { Profile } from 'src/containers/Auth/Profile';
+import { Profile } from 'src/components/Auth/Profile';
 import { MainLayout } from 'src/layouts/MainLayout';
 
 const _ProfilePage = () => {
