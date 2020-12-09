@@ -17,13 +17,17 @@ const _AppAlert = (props: Props) => {
     alerts.length > 0 &&
     alerts.map((alert, index) => {
       return (
-        <Alert
-          message={alert.msg}
-          type={alert.type}
-          key={index}
-          showIcon
-          closable
-        ></Alert>
+        <div className="container">
+          <div className="alert-section">
+            <Alert
+              message={alert.msg}
+              type={alert.type}
+              key={index}
+              showIcon
+              closable
+            ></Alert>
+          </div>
+        </div>
       );
     })
   );

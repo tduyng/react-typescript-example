@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { AppHeader } from 'src/components/Header';
 import { AppFooter } from 'src/components/Footer';
 import { Layout } from 'antd';
+import { AppAlert } from 'src/components/Alert';
 const { Header, Content, Footer } = Layout;
 
 interface Props {
@@ -14,7 +15,10 @@ export const MainLayout = (props: Props) => {
       <Header>
         <AppHeader />
       </Header>
-      <Content className="layout-children">{children}</Content>
+      <Content className="layout-children">
+        <AppAlert />
+        {children}
+      </Content>
       <Footer>
         <AppFooter />
       </Footer>
