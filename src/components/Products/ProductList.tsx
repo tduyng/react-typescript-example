@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
-import { getProducts } from './Product.thunks';
+import { getProducts, clearProduct } from './Product.thunks';
 
 const mapStateToProps = (state: AppState) => ({
   loading: state.products.loading,
@@ -13,6 +13,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = {
   getProducts,
+  clearProduct,
 };
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
@@ -21,7 +22,7 @@ interface Props extends ConnectedProps<typeof connector> {}
 export const _ProductList = (props: Props) => {
   const history = useHistory();
 
-  const { products, getProducts } = props;
+  const { products, getProducts, clearProduct } = props;
 
   const columns = [
     {
@@ -64,6 +65,7 @@ export const _ProductList = (props: Props) => {
   };
 
   const addNewProduct = () => {
+    clearProduct();
     history.push(PATH.PRODUCT_NEW);
   };
 

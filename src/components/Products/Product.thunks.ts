@@ -30,6 +30,9 @@ export const getProduct = id => async dispatch => {
     dispatch(actions.productError(payload));
   }
 };
+export const clearProduct = () => dispatch => {
+  dispatch(actions.clearProductSuccess());
+};
 
 export const createProduct = (formData: ProductForm) => async dispatch => {
   try {

@@ -47,6 +47,14 @@ export const productReducer = (state = initialState, action) => {
         ...state,
         error: payload,
         loading: false,
+        products: [],
+        product: null,
+      };
+    case types.CLEAR_PRODUCT:
+      return {
+        ...state,
+        product: null,
+        loading: false,
       };
 
     default:

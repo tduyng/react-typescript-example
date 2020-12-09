@@ -28,3 +28,7 @@ export const productError = (payload: ProductError) => ({
   type: types.PRODUCT_ERROR,
   payload,
 });
+
+export const clearProductSuccess = () => ({
+  type: types.CLEAR_PRODUCT,
+});
