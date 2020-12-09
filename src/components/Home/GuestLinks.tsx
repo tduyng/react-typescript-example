@@ -13,7 +13,7 @@ export const GuestLinks = () => {
             <p>Please login with account & password below.</p>
             <p className="home-text-light">
               Account:
-              <span> admin</span>
+              <span> tester</span>
             </p>
             <p className="home-text-light">
               Password: <span> 123456</span>

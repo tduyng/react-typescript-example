@@ -5,6 +5,11 @@ import { useParams } from 'react-router-dom';
 import { Row, Col, Image, Button } from 'antd';
 import { NotFound } from 'src/components/Error/404';
 import { useHistory } from 'react-router-dom';
+import {
+  ArrowLeftOutlined,
+  DeleteOutlined,
+  EditOutlined,
+} from '@ant-design/icons';
 
 const mapStateToProps = (state: AppState) => ({
   product: state.products.product,
@@ -44,10 +49,18 @@ export const _ProductItem = (props: Props) => {
                 </p>
               </Col>
             </Row>
-            <Row className="mt-2">
-              <Col offset={12}>
-                <Button type="primary" onClick={goBack}>
-                  Go Back
+            <Row className="mt-2" gutter={[16, 16]}>
+              <Col span={6} offset={12}>
+                <Button onClick={goBack}>
+                  <ArrowLeftOutlined /> Go Back
+                </Button>
+              </Col>
+              <Col span={6} offset={0}>
+                <Button type="primary">
+                  <EditOutlined /> Edit
+                </Button>{' '}
+                <Button danger>
+                  <DeleteOutlined /> Delete
                 </Button>
               </Col>
             </Row>
