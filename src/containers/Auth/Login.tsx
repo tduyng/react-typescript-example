@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message } from 'antd';
-import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox, message } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
-import { useHistory, Link, Redirect } from 'react-router-dom';
-import { register } from './Auth.thunks';
+import { Link, Redirect } from 'react-router-dom';
+import { login } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = (state: AppState) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 const mapDispatchToProps = {
-  register,
+  login,
 };
 const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
-const _Register = (props: Props) => {
-  // eslint-disable-next-line
+const _Login = (props: Props) => {
+  //  eslint-disable-next-line
   const [error, setError] = useState('');
-  const { register, isAuthenticated } = props;
-  const history = useHistory();
+  const { login, isAuthenticated } = props;
 
   const onFinish = async formData => {
+    const { username, password } = formData;
+    const payload = { username, password };
     try {
-      await register(formData);
+      await login(payload);
     } catch (error) {
+      message.error(error.message);
       setError(error.payload.message);
     }
-  };
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
   };
 
   if (isAuthenticated) {
@@ -43,14 +42,13 @@ const _Register = (props: Props) => {
             alt=" logo "
             src=" https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg "
           />
-          SIGNUP
+          LOGIN
         </h1>
         <Form
           name="login_form"
           className="login-form"
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
         >
           <Form.Item
             name="username"
@@ -59,16 +57,6 @@ const _Register = (props: Props) => {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Username"
-            />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input
-              prefix={<MailOutlined className="site-form-item-icon" />}
-              placeholder="Email"
-              type="email"
             />
           </Form.Item>
 
@@ -83,17 +71,26 @@ const _Register = (props: Props) => {
             />
           </Form.Item>
           <Form.Item>
+            <Form.Item name="remember" valuePropName="checked" noStyle>
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Link className="login-form-forgot" to="/forgotpassword">
+              Forgot password
+            </Link>
+          </Form.Item>
+          <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button"
             >
-              Sign Up
+              Log in
             </Button>
             <div className="login-form-register-link-wrapper">
               Or{' '}
-              <Link to={PATH.LOGIN} className="login-form-register-link">
-                Log in now!
+              <Link to={PATH.REGISTER} className="login-form-register-link">
+                Register now!
               </Link>
             </div>
           </Form.Item>
@@ -102,5 +99,5 @@ const _Register = (props: Props) => {
     </div>
   );
 };
-const Register = connector(_Register);
-export { Register };
+const Login = connector(_Login);
+export { Login };

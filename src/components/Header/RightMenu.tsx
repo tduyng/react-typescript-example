@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Grid } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { LoginOutlined } from '@ant-design/icons';
-import { logout } from 'src/components/Auth/Auth.thunks';
+import { logout } from 'src/containers/Auth/Auth.thunks';
 import { connect, ConnectedProps } from 'react-redux';
 import { PATH } from 'src/constants/paths';
 

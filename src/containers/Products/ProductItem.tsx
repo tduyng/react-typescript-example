@@ -25,12 +25,13 @@ interface Props extends ConnectedProps<typeof connector> {}
 
 export const _ProductItem = (props: Props) => {
   const { product, getProduct } = props;
+
   const history = useHistory();
   const goBack = () => {
     history.goBack();
   };
 
-  let productComponent = (item: Product) => {
+  let productComponent = item => {
     if (item) {
       return (
         <div className="product-item-section mt-2">

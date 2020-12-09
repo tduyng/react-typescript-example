@@ -1,5 +1,5 @@
 import React from 'react';
-import { Register } from 'src/components/Auth/Register';
+import { Register } from 'src/containers/Auth/Register';
 import { MainLayout } from 'src/layouts/MainLayout';
 
 const _RegisterPage = () => {

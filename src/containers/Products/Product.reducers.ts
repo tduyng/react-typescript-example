@@ -2,6 +2,7 @@ import * as types from './Product.constants';
 import produce from 'immer';
 
 const products = [] as Product[];
+
 const initialState = {
   loading: true,
   error: {},
