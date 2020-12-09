@@ -19,34 +19,42 @@ const mapDispatchToProps = {
 const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
+const sort = (a, b): number => {
+  return isNaN(a) && isNaN(b) ? (a || '').localeCompare(b || '') : a - b;
+};
+
 export const _ProductList = (props: Props) => {
   const history = useHistory();
 
   const { products, getProducts, clearProduct } = props;
 
-  const columns = [
+  const columns: any = [
     {
       title: 'Preview',
       dataIndex: 'image_url',
       render: (image_url, row) => renderImgProduct(image_url, row),
-      key: 'image_url',
     },
     {
       title: 'Name',
       dataIndex: 'name',
+      sorter: (a, b) => {
+        return a.name.localeCompare(b.name);
+      },
+      sortDirections: ['descend', 'ascend'],
       render: (name, row) => showProduct(name, row),
-      key: 'name',
     },
     {
       title: 'Brand',
       dataIndex: 'brand',
-      key: 'brand',
+      sorter: (a, b) => {
+        return a.brand.localeCompare(b.brand);
+      },
+      defaultSortOrder: 'descend',
     },
   ];
   const showProduct = (name, row) => {
     return (
       <Link
-        key={row.id}
         to={`${PATH.PRODUCTS}/${row.id}`}
         style={{ textTransform: 'uppercase' }}
       >
@@ -57,7 +65,7 @@ export const _ProductList = (props: Props) => {
   const renderImgProduct = (image_url, row) => {
     if (row.id) {
       return (
-        <Link to={`${PATH.PRODUCTS}/${row.id}`} key={row.id}>
+        <Link to={`${PATH.PRODUCTS}/${row.id}`}>
           <Image src={image_url} alt="Image_sp" style={{ maxWidth: '100px' }} />
         </Link>
       );
