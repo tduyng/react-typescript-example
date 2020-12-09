@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductItem } from 'src/components/Products/ProductItem';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _ProductItemPage = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Login } from 'src/components/Auth/Login';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _LoginPage = () => {
   return (

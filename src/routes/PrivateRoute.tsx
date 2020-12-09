@@ -23,7 +23,7 @@ const mapDispatchToProps = {};
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
-const _AuthenticatedGuard = (props: Props) => {
+const _PrivateRoute = (props: Props) => {
   const { isAuthenticated, component: Component, ...rest } = props;
   return (
     <Route
@@ -38,4 +38,4 @@ const _AuthenticatedGuard = (props: Props) => {
   );
 };
 
-export const AuthenticatedGuard = connector(_AuthenticatedGuard);
+export const PrivateRoute = connector(_PrivateRoute);

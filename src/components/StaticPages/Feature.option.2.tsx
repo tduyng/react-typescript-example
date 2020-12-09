@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FeatureOption2 = () => {
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div className="container">
         <div className="block-title">
           <h2>Service Page - Option 2</h2>

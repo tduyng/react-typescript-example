@@ -4,7 +4,7 @@ const { TextArea } = Input;
 
 export const Contact = () => {
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div id="main-contact" className="block">
         <div className="container">
           <div className="block-title">

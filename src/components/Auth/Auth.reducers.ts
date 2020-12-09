@@ -1,4 +1,5 @@
 import * as types from './Auth.constants';
+import produce from 'immer';
 
 let userType: IUser = {
   id: '',
@@ -14,47 +15,38 @@ const initialState = {
   user: userType,
 };
 
-export const authReducer = (state = initialState, action: ActionRedux) => {
-  const { type, payload } = action;
-  switch (type) {
-    case types.USER_LOADED:
-      return {
-        ...state,
-        isAuthenticated: true,
-        loading: false,
-        token: payload.id,
-        user: payload,
-      };
-    case types.LOGIN_SUCCESS:
-    case types.REGISTER_SUCCESS:
-      localStorage.setItem('user', JSON.stringify(payload));
-      return {
-        ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false,
-        user: payload,
-      };
-    case types.LOGIN_FAILED:
-    case types.AUTH_ERROR:
-    case types.REGISTER_FAILED:
-      localStorage.removeItem('user');
-      return {
-        ...state,
-        token: null,
-        isAuthenticated: false,
-        loading: false,
-      };
-    case types.LOGOUT:
-      localStorage.removeItem('user');
-      return {
-        ...state,
-        token: null,
-        isAuthenticated: false,
-        loading: false,
-      };
+export const authReducer = (state = initialState, action: ActionRedux) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case types.USER_LOADED:
+        draft.isAuthenticated = true;
+        draft.loading = false;
+        draft.token = action.payload.id;
+        draft.user = action.payload;
+        break;
+      case types.LOGIN_SUCCESS:
+      case types.REGISTER_SUCCESS:
+        localStorage.setItem('user', JSON.stringify(action.payload));
+        draft.isAuthenticated = true;
+        draft.loading = false;
+        draft.user = action.payload;
+        break;
+      case types.LOGIN_FAILED:
+      case types.AUTH_ERROR:
+      case types.REGISTER_FAILED:
+        localStorage.removeItem('user');
+        draft.token = null;
+        draft.isAuthenticated = false;
+        draft.loading = false;
+        break;
+      case types.LOGOUT:
+        localStorage.removeItem('user');
+        draft.token = null;
+        draft.isAuthenticated = false;
+        draft.loading = false;
+        break;
 
-    default:
-      return state;
-  }
-};
+      default:
+        return state;
+    }
+  });

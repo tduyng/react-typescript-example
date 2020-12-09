@@ -1,6 +1,6 @@
 import React from 'react';
 import { DemoOption1 } from 'src/components/StaticPages/Demo.option.1';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _Demo1 = () => {
   return (

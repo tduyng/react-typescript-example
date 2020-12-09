@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { register } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
@@ -19,7 +19,6 @@ const _Register = (props: Props) => {
   // eslint-disable-next-line
   const [error, setError] = useState('');
   const { register, isAuthenticated } = props;
-  const history = useHistory();
 
   const onFinish = async formData => {
     try {
@@ -29,6 +28,7 @@ const _Register = (props: Props) => {
     }
   };
   const onFinishFailed = errorInfo => {
+    // eslint-disable-next-line
     console.log('Failed:', errorInfo);
   };
 

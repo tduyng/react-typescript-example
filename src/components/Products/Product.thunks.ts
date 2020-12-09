@@ -36,12 +36,15 @@ export const clearProduct = () => dispatch => {
 
 export const createProduct = (formData: ProductForm) => async dispatch => {
   try {
+    const img_default = '/images/image-default.jpg';
     const newProduct = {
-      id: uuid(),
       ...formData,
+      id: uuid(),
+      image_url: formData.image_url || img_default,
     };
     await axios.post(`${URL.baseAPIUrl}/api/products`, newProduct);
     dispatch(actions.createProductSuccess(newProduct));
+    dispatch(getProducts());
   } catch (error) {
     const payload = {
       msg: error.response?.statusText,
@@ -55,6 +58,35 @@ export const deleteProduct = (id: string) => async dispatch => {
   try {
     await axios.delete(`${URL.baseAPIUrl}/api/products/${id}`);
     dispatch(actions.deleteProductSuccess(id));
+    dispatch(getProducts());
+  } catch (error) {
+    const payload = {
+      msg: error.response?.statusText,
+      status: error.response?.status,
+    };
+    dispatch(actions.productError(payload));
+  }
+};
+
+export const editProduct = (id: string) => async dispatch => {
+  try {
+    const res = await axios.get(`${URL.baseAPIUrl}/api/products/${id}`);
+    const product = res.data as Product;
+    dispatch(actions.editProductSuccess(product));
+  } catch (error) {
+    const payload = {
+      msg: error.response?.statusText,
+      status: error.response?.status,
+    };
+    dispatch(actions.productError(payload));
+  }
+};
+
+export const updateProduct = (product: Product) => async dispatch => {
+  try {
+    await axios.put(`${URL.baseAPIUrl}/api/products/${product.id}`, product);
+    dispatch(actions.updateProductSuccess(product));
+    dispatch(getProducts());
   } catch (error) {
     const payload = {
       msg: error.response?.statusText,

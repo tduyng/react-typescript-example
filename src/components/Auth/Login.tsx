@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect, ConnectedProps } from 'react-redux';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { login } from './Auth.thunks';
 import { PATH } from 'src/constants/paths';
 
@@ -21,10 +21,8 @@ const _Login = (props: Props) => {
   const { login, isAuthenticated } = props;
 
   const onFinish = async formData => {
-    const { username, password } = formData;
-    const payload = { username, password };
     try {
-      await login(payload);
+      await login(formData);
     } catch (error) {
       message.error(error.message);
       setError(error.payload.message);

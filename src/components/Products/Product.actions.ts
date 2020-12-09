@@ -15,6 +15,11 @@ export const createProductSuccess = (payload: Product) => ({
   payload,
 });
 
+export const editProductSuccess = (payload: Product) => ({
+  type: types.EDIT_PRODUCT,
+  payload,
+});
+
 export const updateProductSuccess = (payload: Product) => ({
   type: types.UPDATE_PRODUCT,
   payload,
@@ -22,6 +27,7 @@ export const updateProductSuccess = (payload: Product) => ({
 
 export const deleteProductSuccess = (payload: string) => ({
   type: types.DELETE_PRODUCT,
+  payload,
 });
 
 export const productError = (payload: ProductError) => ({

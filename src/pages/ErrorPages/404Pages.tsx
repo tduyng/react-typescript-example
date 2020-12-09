@@ -1,6 +1,6 @@
 import React from 'react';
 import { NotFound } from 'src/components/Error/404';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _NotFoundPage = () => {
   return (

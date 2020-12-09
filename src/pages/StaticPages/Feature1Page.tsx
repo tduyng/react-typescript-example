@@ -1,6 +1,6 @@
 import React from 'react';
 import { FeatureOption1 } from 'src/components/StaticPages/Feature.option.1';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _Feature1 = () => {
   return (

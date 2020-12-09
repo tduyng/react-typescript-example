@@ -6,7 +6,7 @@ import {
   EllipsisOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 const { Meta } = Card;
 

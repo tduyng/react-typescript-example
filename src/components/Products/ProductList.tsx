@@ -24,29 +24,33 @@ export const _ProductList = (props: Props) => {
 
   const { products, getProducts, clearProduct } = props;
 
-  const columns = [
+  const columns: any = [
     {
       title: 'Preview',
       dataIndex: 'image_url',
       render: (image_url, row) => renderImgProduct(image_url, row),
-      key: 'image_url',
     },
     {
       title: 'Name',
       dataIndex: 'name',
+      sorter: (a, b) => {
+        return a.name.localeCompare(b.name);
+      },
+      sortDirections: ['descend', 'ascend'],
       render: (name, row) => showProduct(name, row),
-      key: 'name',
     },
     {
       title: 'Brand',
       dataIndex: 'brand',
-      key: 'brand',
+      sorter: (a, b) => {
+        return a.brand.localeCompare(b.brand);
+      },
+      defaultSortOrder: 'descend',
     },
   ];
   const showProduct = (name, row) => {
     return (
       <Link
-        key={row.id}
         to={`${PATH.PRODUCTS}/${row.id}`}
         style={{ textTransform: 'uppercase' }}
       >
@@ -57,7 +61,7 @@ export const _ProductList = (props: Props) => {
   const renderImgProduct = (image_url, row) => {
     if (row.id) {
       return (
-        <Link to={`${PATH.PRODUCTS}/${row.id}`} key={row.id}>
+        <Link to={`${PATH.PRODUCTS}/${row.id}`}>
           <Image src={image_url} alt="Image_sp" style={{ maxWidth: '100px' }} />
         </Link>
       );
@@ -72,7 +76,8 @@ export const _ProductList = (props: Props) => {
   let data = [{}];
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [getProducts]);
+
   products.map((product: Product, index: number) => {
     if (index === 0) {
       data = [
@@ -96,20 +101,21 @@ export const _ProductList = (props: Props) => {
   });
 
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div className="container">
         <div className="block-title">
           <h2>All Smartphones available</h2>
         </div>
         <div className="product-list">
           <Row gutter={[40, 0]} className="mb-1">
-            <Col span={6} offset={18}>
-              <Button type="primary" onClick={addNewProduct} block>
+            <Col>
+              <Button type="primary" onClick={addNewProduct}>
                 <PlusOutlined />
-                Add new product
+                New product
               </Button>
             </Col>
           </Row>
+
           <Row gutter={[40, 0]}>
             <Col span={24}>
               <Table columns={columns} dataSource={data} rowKey="id" />
