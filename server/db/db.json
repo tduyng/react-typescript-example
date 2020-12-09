@@ -97,6 +97,12 @@
       "brand": "APPLE",
       "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-gold-hero?wid=470&hei=556&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1604021659000",
       "id": "f1d30887-14f9-4238-8ecd-c106d5f529e8"
+    },
+    {
+      "name": "test",
+      "brand": "OTHERS",
+      "image_url": "/images/image-default.jpg",
+      "id": "72fc536d-6992-4d26-a9ff-1294bb38cd5a"
     }
   ]
 }
