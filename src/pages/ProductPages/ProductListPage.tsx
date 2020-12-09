@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductList } from 'src/components/Products/ProductList';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _ProductListPage = () => {
   return (

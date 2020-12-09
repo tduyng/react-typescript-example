@@ -1,6 +1,6 @@
 import React from 'react';
 import { Contact } from 'src/components/StaticPages/Contact';
-import { MainLayout } from 'src/layouts/MainLayout';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 const _ContactPage = () => {
   return (
