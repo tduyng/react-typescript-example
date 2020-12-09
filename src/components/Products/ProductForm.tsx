@@ -1,21 +1,31 @@
 import React from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import { Form, Input, Button, Select } from 'antd';
 import { PhoneBrand } from 'src/constants/products';
-import { is } from 'immer/dist/internal';
+import { useHistory } from 'react-router-dom';
+
+import { createProduct } from './Product.thunks';
+import { PATH } from 'src/constants/paths';
 const { Option } = Select;
 
-export const ProductForm = () => {
-  const onSelectChange = value => {
-    //eslint-disable-next-line
-    console.log(`selected ${value}`);
-  };
+const mapStateToProps = (state: AppState) => ({
+  products: state.products.products,
+});
+const mapDispatchToProps = { createProduct };
+const connector = connect(mapStateToProps, mapDispatchToProps);
+interface Props extends ConnectedProps<typeof connector> {}
+
+export const _ProductForm = (props: Props) => {
+  const { createProduct } = props;
+  const history = useHistory();
   const layout = {
     labelCol: { span: 4 },
     wrapperCol: { span: 16 },
   };
 
   const onFinish = values => {
-    console.log(values);
+    createProduct(values);
+    history.push(PATH.HOME);
   };
 
   const allBrands = Object.values(PhoneBrand).filter(
@@ -63,7 +73,6 @@ export const ProductForm = () => {
                 style={{ width: 200 }}
                 placeholder="Select a brand"
                 optionFilterProp="children"
-                onChange={onSelectChange}
                 filterOption={(input, option) =>
                   option?.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -89,3 +98,5 @@ export const ProductForm = () => {
     </div>
   );
 };
+
+export const ProductForm = connector(_ProductForm);

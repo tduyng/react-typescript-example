@@ -76,7 +76,7 @@ export const _ProductList = (props: Props) => {
   let data = [{}];
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [getProducts]);
   products.map((product: Product, index: number) => {
     if (index === 0) {
       data = [

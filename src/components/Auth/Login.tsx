@@ -21,10 +21,8 @@ const _Login = (props: Props) => {
   const { login, isAuthenticated } = props;
 
   const onFinish = async formData => {
-    const { username, password } = formData;
-    const payload = { username, password };
     try {
-      await login(payload);
+      await login(formData);
     } catch (error) {
       message.error(error.message);
       setError(error.payload.message);

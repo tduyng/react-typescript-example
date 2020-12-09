@@ -36,12 +36,15 @@ export const clearProduct = () => dispatch => {
 
 export const createProduct = (formData: ProductForm) => async dispatch => {
   try {
+    const img_default = '/images/image-default.jpg';
     const newProduct = {
-      id: uuid(),
       ...formData,
+      id: uuid(),
+      image_url: formData.image_url || img_default,
     };
     await axios.post(`${URL.baseAPIUrl}/api/products`, newProduct);
     dispatch(actions.createProductSuccess(newProduct));
+    dispatch(getProducts());
   } catch (error) {
     const payload = {
       msg: error.response?.statusText,
