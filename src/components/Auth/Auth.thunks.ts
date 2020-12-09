@@ -2,6 +2,7 @@ import axios from 'axios';
 import { URL } from 'src/constants/urls';
 import * as actions from './Auth.actions';
 import { v4 as uuid } from 'uuid';
+import { setAlert } from 'src/components/Alert/Alert.thunks';
 
 export const loadUser = () => async dispatch => {
   const userJson = localStorage.getItem('user') || '{}';
