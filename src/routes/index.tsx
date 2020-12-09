@@ -2,9 +2,9 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
-import { AppHeader } from 'src/components/Header';
 import { Route, Switch } from 'react-router-dom';
-const NotFoundPage = lazy(() => import('src/pages/ErrorPages/404Pages'));
+
+// ---> Static pages
 const HomePage = lazy(() => import('src/pages/HomePages/HomePage'));
 const ContactPage = lazy(() => import('src/pages/StaticPages/ContactPage'));
 const AboutPage = lazy(() => import('src/pages/StaticPages/AboutPage'));
@@ -12,15 +12,22 @@ const Demo1Page = lazy(() => import('src/pages/StaticPages/Demo1Page'));
 const Demo2Page = lazy(() => import('src/pages/StaticPages/Demo2Page'));
 const Feature1Page = lazy(() => import('src/pages/StaticPages/Feature1Page'));
 const Feature2Page = lazy(() => import('src/pages/StaticPages/Feature2Page'));
+
+// ---> Auth pages
 const LoginPage = lazy(() => import('src/pages/AuthPages/LoginPage'));
 const RegisterPage = lazy(() => import('src/pages/AuthPages/RegisterPage'));
 const ProfilePage = lazy(() => import('src/pages/AuthPages/ProfilePage'));
+
+// ---> Products pages
 const ProductListPage = lazy(
   () => import('src/pages/ProductPages/ProductListPage'),
 );
 const ProductItemPage = lazy(
   () => import('src/pages/ProductPages/ProductItemPage'),
 );
+
+// ---> Error pages
+const NotFoundPage = lazy(() => import('src/pages/ErrorPages/404Pages'));
 
 export const Routes = () => {
   return (
