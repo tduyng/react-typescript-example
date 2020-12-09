@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 import { Route, Switch } from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute';
 
 // ---> Static pages
 const HomePage = lazy(() => import('src/pages/HomePages/HomePage'));
@@ -46,11 +47,15 @@ export const Routes = () => {
           {/* Auth routes */}
           <Route exact path={PATH.LOGIN} component={LoginPage} />
           <Route exact path={PATH.REGISTER} component={RegisterPage} />
-          <Route exact path={PATH.PROFILE} component={ProfilePage} />
+          <PrivateRoute exact path={PATH.PROFILE} component={ProfilePage} />
 
           {/* Products routes */}
-          <Route exact path={PATH.PRODUCTS} component={ProductListPage} />
-          <Route
+          <PrivateRoute
+            exact
+            path={PATH.PRODUCTS}
+            component={ProductListPage}
+          />
+          <PrivateRoute
             exact
             path={PATH.PRODUCTS + '/:id'}
             component={ProductItemPage}
