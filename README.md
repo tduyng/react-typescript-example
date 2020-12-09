@@ -29,6 +29,18 @@ username: tester
 password: 123456
 ```
 
+
+## Technologies
+  - Integrate ESlint, Prettier
+  - Styled-Component and CSS Module for CSS
+  - Using TypeScript
+  - Using Redux, React thunks
+  - Functional programming with React hooks
+  - Lazy load page
+  - Using ant design
+  - Using json-server to create fake server backend
+  
+
 ## Project structure
 
 ```tree
@@ -155,13 +167,6 @@ password: 123456
 └── yarn.lock
 
 ```
-
-### Technologies
-  - Integrate ESlint, Prettier
-  - Styled-Component and CSS Module for CSS
-  - Using TypeScript
-  - Using Redux, React Hooks, React thunks
-  - Using ant design
   
 ### src folder
   - **@types**: Declare modules, interface, type for TypeScript
@@ -180,3 +185,25 @@ password: 123456
   - **pages**: pages of project
   - **routes**: private routes and public routes of project
   - **store**: store of Redux and root reducers
+
+## Project Routes
+### Public routes
+- **Home**: '/': Show landing page before login
+- **Feature - Option 1**: '/feature1'
+- **Feature - Option 2**: '/feature2'
+- **Demo - Option 1**: '/demo1'
+- **Demo - Option 2**: '/demo1'
+- **About**: '/about'
+- **Contact**: '/about'
+- **Login**: '/login'
+- **Register**: '/signup'
+- **404**: Page not found
+
+### Private routes (need auth)
+- **Profile**: '/profile'
+- **Products**: '/' or '/products': Show list of products
+- **Show Product**: '/products/:id
+- **Create Product**: '/products/new
+- **Edit Product**: '/products/:id/edit
+- **Update Product**: '/products/:id
+- **Delete Product**: button click
