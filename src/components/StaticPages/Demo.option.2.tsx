@@ -11,7 +11,7 @@ export const DemoOption2 = () => {
     setVisible(false);
   };
   return (
-    <div className="static-pages-section ">
+    <div className="main-body-section ">
       <div className="container">
         <div className="demo-content">
           <div className="block-title">

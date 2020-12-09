@@ -14,10 +14,3 @@ interface ProductForm {
   image_url: string;
   brand: string;
 }
-
-enum PhoneBrand {
-  APPLE,
-  SAMSUM,
-  XIAOMI,
-  HUEWEI,
-}

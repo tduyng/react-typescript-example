@@ -2,7 +2,7 @@ import React from 'react';
 
 export const About = () => {
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div className="container">
         <div className="block-title">
           <h2>About Us</h2>

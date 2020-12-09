@@ -9,7 +9,7 @@ export const NotFound = () => {
     history.goBack();
   };
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div className="container">
         <div className="block-title" style={{ color: '#fa8c16' }}>
           <h2 style={{ color: '#fa8c16' }}>

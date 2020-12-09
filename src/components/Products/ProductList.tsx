@@ -19,10 +19,6 @@ const mapDispatchToProps = {
 const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
-const sort = (a, b): number => {
-  return isNaN(a) && isNaN(b) ? (a || '').localeCompare(b || '') : a - b;
-};
-
 export const _ProductList = (props: Props) => {
   const history = useHistory();
 
@@ -104,20 +100,21 @@ export const _ProductList = (props: Props) => {
   });
 
   return (
-    <div className="static-pages-section">
+    <div className="main-body-section">
       <div className="container">
         <div className="block-title">
           <h2>All Smartphones available</h2>
         </div>
         <div className="product-list">
           <Row gutter={[40, 0]} className="mb-1">
-            <Col span={6} offset={18}>
-              <Button type="primary" onClick={addNewProduct} block>
+            <Col>
+              <Button type="primary" onClick={addNewProduct}>
                 <PlusOutlined />
-                Add new product
+                New product
               </Button>
             </Col>
           </Row>
+
           <Row gutter={[40, 0]}>
             <Col span={24}>
               <Table columns={columns} dataSource={data} rowKey="id" />
