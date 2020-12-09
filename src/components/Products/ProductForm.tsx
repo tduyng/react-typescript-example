@@ -1,49 +1,63 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { Form, Input, Button, Select } from 'antd';
 import { PhoneBrand } from 'src/constants/products';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
-import { createProduct } from './Product.thunks';
+import { createProduct, editProduct, updateProduct } from './Product.thunks';
 import { PATH } from 'src/constants/paths';
 const { Option } = Select;
 
 const mapStateToProps = (state: AppState) => ({
   products: state.products.products,
+  product: state.products.product,
 });
-const mapDispatchToProps = { createProduct };
+const mapDispatchToProps = { createProduct, editProduct, updateProduct };
 const connector = connect(mapStateToProps, mapDispatchToProps);
-interface Props extends ConnectedProps<typeof connector> {}
-
+interface Props extends ConnectedProps<typeof connector> {
+  edit: boolean;
+}
 export const _ProductForm = (props: Props) => {
-  const { createProduct } = props;
+  const { createProduct, edit, product, updateProduct, editProduct } = props;
   const history = useHistory();
+  const params: ProductUrlParams = useParams();
   const layout = {
     labelCol: { span: 4 },
     wrapperCol: { span: 16 },
   };
 
   const onFinish = values => {
-    createProduct(values);
+    if (!edit) {
+      createProduct(values);
+    }
+
     history.push(PATH.HOME);
   };
 
   const allBrands = Object.values(PhoneBrand).filter(
     x => typeof x !== 'number',
   );
+  const initialValues = { ...product };
+
+  useEffect(() => {
+    if (edit) {
+      const { id } = params;
+      editProduct(id);
+    }
+  }, [edit, editProduct, params]);
 
   return (
     <div className="main-body-section">
       <div id="main-contact" className="block">
         <div className="container">
           <div className="block-title">
-            <h2>Create product</h2>
+            <h2>{edit ? 'Create product' : 'Update product'}</h2>
           </div>
           <Form
             {...layout}
             name="product_form"
             className="product-form"
-            initialValues={{ remember: true }}
+            initialValues={{ ...initialValues, remember: true }}
             onFinish={onFinish}
           >
             <Form.Item

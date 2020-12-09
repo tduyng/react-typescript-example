@@ -39,12 +39,6 @@
       "brand": "APPLE"
     },
     {
-      "id": "iphone-11-pro",
-      "name": "Iphone 11 Pro",
-      "image_url": "/images/iphone-11-pro.jpg",
-      "brand": "APPLE"
-    },
-    {
       "id": "iphone-11",
       "name": "Iphone 11",
       "image_url": "/images/iphone-11.jpg",
@@ -85,12 +79,6 @@
       "brand": "APPLE",
       "image_url": "https://images.frandroid.com/wp-content/uploads/2020/10/iphone-12-max-frandroid-2020.png",
       "id": "5695c3c0-10b3-40d7-b39b-f8f807323dc4"
-    },
-    {
-      "name": "Iphone 12 Pro Max",
-      "brand": "APPLE",
-      "image_url": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg",
-      "id": "4a36b6d8-e8e4-4f13-a19a-ca3c155e479a"
     },
     {
       "name": "Iphone 12 Pro Max",

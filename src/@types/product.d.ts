@@ -14,3 +14,6 @@ interface ProductForm {
   image_url: string;
   brand: string;
 }
+interface ProductUrlParams {
+  id: string;
+}

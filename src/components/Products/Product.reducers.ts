@@ -26,8 +26,14 @@ export const productReducer = (state = initialState, action) =>
         draft.products = [payload, ...state.products];
         draft.loading = false;
         break;
-      case types.UPDATE_PRODUCT:
+      case types.EDIT_PRODUCT:
+        draft.loading = false;
         draft.product = payload;
+        break;
+      case types.UPDATE_PRODUCT:
+        draft.products = state.products.map(x =>
+          x.id === payload.id ? { ...payload } : x,
+        );
         draft.loading = false;
         break;
       case types.DELETE_PRODUCT:

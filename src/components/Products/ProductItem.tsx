@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { getProduct } from './Product.thunks';
+import { getProduct, deleteProduct } from './Product.thunks';
 import { useParams } from 'react-router-dom';
 import { Row, Col, Image, Button } from 'antd';
 import { NotFound } from 'src/components/Error/404';
@@ -10,25 +10,32 @@ import {
   DeleteOutlined,
   EditOutlined,
 } from '@ant-design/icons';
+import { PATH } from 'src/constants/paths';
 
 const mapStateToProps = (state: AppState) => ({
   product: state.products.product,
 });
 const mapDispatchToProps = {
   getProduct,
+  deleteProduct,
 };
-interface Params {
-  id: string;
-}
+
 const connector = connect(mapStateToProps, mapDispatchToProps);
 interface Props extends ConnectedProps<typeof connector> {}
 
 export const _ProductItem = (props: Props) => {
-  const { product, getProduct } = props;
+  const { product, getProduct, deleteProduct } = props;
 
   const history = useHistory();
   const goBack = () => {
     history.goBack();
+  };
+  const goEdit = () => {
+    history.push(PATH.PRODUCT_EDIT);
+  };
+  const onDelete = () => {
+    deleteProduct(product.id);
+    history.push(PATH.HOME);
   };
 
   let productComponent = item => {
@@ -57,10 +64,10 @@ export const _ProductItem = (props: Props) => {
                 </Button>
               </Col>
               <Col span={6} offset={0}>
-                <Button type="primary">
+                <Button type="primary" onClick={goEdit}>
                   <EditOutlined /> Edit
                 </Button>{' '}
-                <Button danger>
+                <Button danger onClick={onDelete}>
                   <DeleteOutlined /> Delete
                 </Button>
               </Col>
@@ -73,7 +80,7 @@ export const _ProductItem = (props: Props) => {
     }
   };
 
-  const params: Params = useParams();
+  const params: ProductUrlParams = useParams();
   useEffect(() => {
     const { id } = params;
     getProduct(id);

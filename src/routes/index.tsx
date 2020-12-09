@@ -29,6 +29,9 @@ const ProductItemPage = lazy(
 const ProductNewPage = lazy(
   () => import('src/pages/ProductPages/ProductNewPage'),
 );
+const ProductEditPage = lazy(
+  () => import('src/pages/ProductPages/ProductEditPage'),
+);
 
 // ---> Error pages
 const NotFoundPage = lazy(() => import('src/pages/ErrorPages/404Pages'));
@@ -60,13 +63,18 @@ export const Routes = () => {
           />
           <PrivateRoute
             exact
-            path={PATH.PRODUCTS + '/new'}
+            path={PATH.PRODUCT_NEW}
             component={ProductNewPage}
           />
           <PrivateRoute
             exact
-            path={PATH.PRODUCTS + '/:id'}
+            path={PATH.PRODUCT_SHOW}
             component={ProductItemPage}
+          />
+          <PrivateRoute
+            exact
+            path={PATH.PRODUCT_EDIT}
+            component={ProductEditPage}
           />
 
           {/* Error routes */}

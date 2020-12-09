@@ -5,7 +5,7 @@ import { MainLayout } from 'src/pages/layouts/MainLayout';
 const _ProductNewPage = () => {
   return (
     <MainLayout>
-      <ProductForm edit={false} />
+      <ProductForm edit={true} />
     </MainLayout>
   );
 };
