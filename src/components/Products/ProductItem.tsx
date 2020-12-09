@@ -31,7 +31,7 @@ export const _ProductItem = (props: Props) => {
     history.goBack();
   };
   const goEdit = () => {
-    history.push(PATH.PRODUCT_EDIT);
+    history.push(`${PATH.PRODUCTS}/${product.id}/edit`);
   };
   const onDelete = () => {
     deleteProduct(product.id);
@@ -43,7 +43,7 @@ export const _ProductItem = (props: Props) => {
       return (
         <div className="product-item-section mt-2">
           <div className="container">
-            <Row>
+            <Row gutter={[40, 0]}>
               <Col span={12}>
                 <Image src={item.image_url} />
               </Col>

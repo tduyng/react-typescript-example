@@ -29,6 +29,9 @@ export const _ProductForm = (props: Props) => {
   const onFinish = values => {
     if (!edit) {
       createProduct(values);
+    } else {
+      const changedProduct = { ...product, ...values };
+      updateProduct(changedProduct);
     }
 
     history.push(PATH.HOME);
@@ -101,10 +104,11 @@ export const _ProductForm = (props: Props) => {
               <Input />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 10 }}>
-              <Button type="primary" htmlType="submit">
+            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+              <Button type="primary" htmlType="submit" className="mr-1">
                 Submit
               </Button>
+              <Button onClick={e => history.goBack()}>Back</Button>
             </Form.Item>
           </Form>
         </div>

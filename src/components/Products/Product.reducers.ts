@@ -37,7 +37,7 @@ export const productReducer = (state = initialState, action) =>
         draft.loading = false;
         break;
       case types.DELETE_PRODUCT:
-        draft.products = state.products.filter(p => p.id !== payload);
+        draft.products = state.products.filter(p => p.id != payload);
         draft.loading = false;
         break;
       case types.PRODUCT_ERROR:

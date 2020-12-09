@@ -57,7 +57,7 @@ export const createProduct = (formData: ProductForm) => async dispatch => {
 export const deleteProduct = (id: string) => async dispatch => {
   try {
     await axios.delete(`${URL.baseAPIUrl}/api/products/${id}`);
-    dispatch(actions.deleteProductSuccess());
+    dispatch(actions.deleteProductSuccess(id));
     dispatch(getProducts());
   } catch (error) {
     const payload = {
@@ -86,6 +86,7 @@ export const updateProduct = (product: Product) => async dispatch => {
   try {
     await axios.put(`${URL.baseAPIUrl}/api/products/${product.id}`, product);
     dispatch(actions.updateProductSuccess(product));
+    dispatch(getProducts());
   } catch (error) {
     const payload = {
       msg: error.response?.statusText,
