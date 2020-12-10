@@ -1,0 +1,17 @@
+{
+  "name": "json-server-deploy",
+  "version": "1.0.0",
+  "description": "Simple json database with json-server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "json-server,heroku, node, REST API"
+  ],
+  "author": "Tien Duy",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
