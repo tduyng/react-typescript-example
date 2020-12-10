@@ -1,6 +1,10 @@
 # TypeScript React Boilerplate
 
 Template Typescript React Project
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2c01fcbb-9811-4e0e-b86c-e1b79e4f2c46/deploy-status)](https://app.netlify.com/sites/reactts-boilerplate/deploys)
+
+---
 ## Installation
 
 To use this template
