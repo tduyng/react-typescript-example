@@ -1,5 +1,6 @@
 import * as actions from './Alert.actions';
 import { v4 as uuid } from 'uuid';
+import { AlertTypes } from 'src/constants/alerts';
 
 interface PayloadAlert {
   msg: string;
