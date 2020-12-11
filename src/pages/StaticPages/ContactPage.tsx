@@ -1,12 +1,12 @@
 import React from 'react';
 import { Contact } from 'src/components/StaticPages/Contact';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _ContactPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <Contact />
-    </MainLayout>
+    </PageLayout>
   );
 };
 

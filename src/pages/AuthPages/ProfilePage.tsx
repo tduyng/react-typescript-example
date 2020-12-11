@@ -1,12 +1,12 @@
 import React from 'react';
 import { Profile } from 'src/components/Auth/Profile';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _ProfilePage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <Profile />
-    </MainLayout>
+    </PageLayout>
   );
 };
 

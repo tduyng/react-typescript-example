@@ -1,12 +1,12 @@
 import React from 'react';
 import { About } from 'src/components/StaticPages/About';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _AboutPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <About />
-    </MainLayout>
+    </PageLayout>
   );
 };
 

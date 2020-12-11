@@ -1,12 +1,12 @@
 import React from 'react';
 import { ProductForm } from 'src/components/Products/ProductForm';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _ProductNewPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <ProductForm edit={false} />
-    </MainLayout>
+    </PageLayout>
   );
 };
 const ProductNewPage = React.memo(_ProductNewPage);

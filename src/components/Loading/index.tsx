@@ -7,7 +7,7 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 export const Loading = () => {
   return (
     <div className="container">
-      <div style={{ margin: 'auto', textAlign: 'center' }}>
+      <div style={{ margin: '1rem auto auto auto', textAlign: 'center' }}>
         <Spin indicator={antIcon} />
       </div>
     </div>

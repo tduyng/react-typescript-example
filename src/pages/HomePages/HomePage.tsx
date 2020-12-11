@@ -1,12 +1,12 @@
 import React from 'react';
 import { Home } from 'src/components/Home';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _HomePage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <Home />
-    </MainLayout>
+    </PageLayout>
   );
 };
 const HomePage = React.memo(_HomePage);

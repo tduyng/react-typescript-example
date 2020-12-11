@@ -1,12 +1,12 @@
 import React from 'react';
 import { DemoOption2 } from 'src/components/StaticPages/Demo.option.2';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _Demo2 = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <DemoOption2 />
-    </MainLayout>
+    </PageLayout>
   );
 };
 

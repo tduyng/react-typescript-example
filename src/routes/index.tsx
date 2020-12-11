@@ -4,6 +4,7 @@ import { PATH } from 'src/constants/paths';
 import { Loading } from 'src/components/Loading';
 import { Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
+import { MainLayout } from 'src/pages/layouts/MainLayout';
 
 // ---> Static pages
 const HomePage = lazy(() => import('src/pages/HomePages/HomePage'));
@@ -38,49 +39,51 @@ const NotFoundPage = lazy(() => import('src/pages/ErrorPages/404Pages'));
 
 export const Routes = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      <BrowserRouter>
-        <Switch>
-          {/* Static pages routes */}
-          <Route exact path={PATH.HOME} component={HomePage} />
-          <Route exact path={PATH.ABOUT} component={AboutPage} />
-          <Route exact path={PATH.DEMO1} component={Demo1Page} />
-          <Route exact path={PATH.DEMO2} component={Demo2Page} />
-          <Route exact path={PATH.FEATURE1} component={Feature1Page} />
-          <Route exact path={PATH.FEATURE2} component={Feature2Page} />
-          <Route exact path={PATH.CONTACT} component={ContactPage} />
+    <BrowserRouter>
+      <MainLayout>
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            {/* Static pages routes */}
+            <Route exact path={PATH.HOME} component={HomePage} />
+            <Route exact path={PATH.ABOUT} component={AboutPage} />
+            <Route exact path={PATH.DEMO1} component={Demo1Page} />
+            <Route exact path={PATH.DEMO2} component={Demo2Page} />
+            <Route exact path={PATH.FEATURE1} component={Feature1Page} />
+            <Route exact path={PATH.FEATURE2} component={Feature2Page} />
+            <Route exact path={PATH.CONTACT} component={ContactPage} />
 
-          {/* Auth routes */}
-          <Route exact path={PATH.LOGIN} component={LoginPage} />
-          <Route exact path={PATH.REGISTER} component={RegisterPage} />
-          <PrivateRoute exact path={PATH.PROFILE} component={ProfilePage} />
+            {/* Auth routes */}
+            <Route exact path={PATH.LOGIN} component={LoginPage} />
+            <Route exact path={PATH.REGISTER} component={RegisterPage} />
+            <PrivateRoute exact path={PATH.PROFILE} component={ProfilePage} />
 
-          {/* Products routes */}
-          <PrivateRoute
-            exact
-            path={PATH.PRODUCTS}
-            component={ProductListPage}
-          />
-          <PrivateRoute
-            exact
-            path={PATH.PRODUCT_NEW}
-            component={ProductNewPage}
-          />
-          <PrivateRoute
-            exact
-            path={PATH.PRODUCT_SHOW}
-            component={ProductItemPage}
-          />
-          <PrivateRoute
-            exact
-            path={PATH.PRODUCT_EDIT}
-            component={ProductEditPage}
-          />
+            {/* Products routes */}
+            <PrivateRoute
+              exact
+              path={PATH.PRODUCTS}
+              component={ProductListPage}
+            />
+            <PrivateRoute
+              exact
+              path={PATH.PRODUCT_NEW}
+              component={ProductNewPage}
+            />
+            <PrivateRoute
+              exact
+              path={PATH.PRODUCT_SHOW}
+              component={ProductItemPage}
+            />
+            <PrivateRoute
+              exact
+              path={PATH.PRODUCT_EDIT}
+              component={ProductEditPage}
+            />
 
-          {/* Error routes */}
-          <Route component={NotFoundPage} />
-        </Switch>
-      </BrowserRouter>
-    </Suspense>
+            {/* Error routes */}
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Suspense>
+      </MainLayout>
+    </BrowserRouter>
   );
 };

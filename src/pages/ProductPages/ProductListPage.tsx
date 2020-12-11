@@ -1,12 +1,12 @@
 import React from 'react';
 import { ProductList } from 'src/components/Products/ProductList';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _ProductListPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <ProductList />
-    </MainLayout>
+    </PageLayout>
   );
 };
 const ProductListPage = React.memo(_ProductListPage);

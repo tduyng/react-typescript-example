@@ -1,12 +1,12 @@
 import React from 'react';
 import { NotFound } from 'src/components/Error/404';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _NotFoundPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <NotFound />
-    </MainLayout>
+    </PageLayout>
   );
 };
 const NotFoundPage = React.memo(_NotFoundPage);

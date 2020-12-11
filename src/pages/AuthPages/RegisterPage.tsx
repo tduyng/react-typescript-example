@@ -1,12 +1,12 @@
 import React from 'react';
 import { Register } from 'src/components/Auth/Register';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _RegisterPage = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <Register />
-    </MainLayout>
+    </PageLayout>
   );
 };
 

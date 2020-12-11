@@ -1,12 +1,12 @@
 import React from 'react';
 import { FeatureOption1 } from 'src/components/StaticPages/Feature.option.1';
-import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { PageLayout } from 'src/pages/layouts/PageLayout';
 
 const _Feature1 = () => {
   return (
-    <MainLayout>
+    <PageLayout>
       <FeatureOption1 />
-    </MainLayout>
+    </PageLayout>
   );
 };
 
