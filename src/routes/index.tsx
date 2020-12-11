@@ -5,6 +5,7 @@ import { Loading } from 'src/components/Loading';
 import { Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { MainLayout } from 'src/pages/layouts/MainLayout';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // ---> Static pages
 const HomePage = lazy(() => import('src/pages/HomePages/HomePage'));
@@ -37,53 +38,66 @@ const ProductEditPage = lazy(
 // ---> Error pages
 const NotFoundPage = lazy(() => import('src/pages/ErrorPages/404Pages'));
 
+const helmetContext = {};
+
 export const Routes = () => {
   return (
     <BrowserRouter>
-      <MainLayout>
-        <Suspense fallback={<Loading />}>
-          <Switch>
-            {/* Static pages routes */}
-            <Route exact path={PATH.HOME} component={HomePage} />
-            <Route exact path={PATH.ABOUT} component={AboutPage} />
-            <Route exact path={PATH.DEMO1} component={Demo1Page} />
-            <Route exact path={PATH.DEMO2} component={Demo2Page} />
-            <Route exact path={PATH.FEATURE1} component={Feature1Page} />
-            <Route exact path={PATH.FEATURE2} component={Feature2Page} />
-            <Route exact path={PATH.CONTACT} component={ContactPage} />
+      <HelmetProvider context={helmetContext}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>React TS Boilerplate</title>
+          <link
+            rel="canonical"
+            href="https://reactts-boilerplate.netlify.app/"
+          />
+        </Helmet>
 
-            {/* Auth routes */}
-            <Route exact path={PATH.LOGIN} component={LoginPage} />
-            <Route exact path={PATH.REGISTER} component={RegisterPage} />
-            <PrivateRoute exact path={PATH.PROFILE} component={ProfilePage} />
+        <MainLayout>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              {/* Static pages routes */}
+              <Route exact path={PATH.HOME} component={HomePage} />
+              <Route exact path={PATH.ABOUT} component={AboutPage} />
+              <Route exact path={PATH.DEMO1} component={Demo1Page} />
+              <Route exact path={PATH.DEMO2} component={Demo2Page} />
+              <Route exact path={PATH.FEATURE1} component={Feature1Page} />
+              <Route exact path={PATH.FEATURE2} component={Feature2Page} />
+              <Route exact path={PATH.CONTACT} component={ContactPage} />
 
-            {/* Products routes */}
-            <PrivateRoute
-              exact
-              path={PATH.PRODUCTS}
-              component={ProductListPage}
-            />
-            <PrivateRoute
-              exact
-              path={PATH.PRODUCT_NEW}
-              component={ProductNewPage}
-            />
-            <PrivateRoute
-              exact
-              path={PATH.PRODUCT_SHOW}
-              component={ProductItemPage}
-            />
-            <PrivateRoute
-              exact
-              path={PATH.PRODUCT_EDIT}
-              component={ProductEditPage}
-            />
+              {/* Auth routes */}
+              <Route exact path={PATH.LOGIN} component={LoginPage} />
+              <Route exact path={PATH.REGISTER} component={RegisterPage} />
+              <PrivateRoute exact path={PATH.PROFILE} component={ProfilePage} />
 
-            {/* Error routes */}
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Suspense>
-      </MainLayout>
+              {/* Products routes */}
+              <PrivateRoute
+                exact
+                path={PATH.PRODUCTS}
+                component={ProductListPage}
+              />
+              <PrivateRoute
+                exact
+                path={PATH.PRODUCT_NEW}
+                component={ProductNewPage}
+              />
+              <PrivateRoute
+                exact
+                path={PATH.PRODUCT_SHOW}
+                component={ProductItemPage}
+              />
+              <PrivateRoute
+                exact
+                path={PATH.PRODUCT_EDIT}
+                component={ProductEditPage}
+              />
+
+              {/* Error routes */}
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Suspense>
+        </MainLayout>
+      </HelmetProvider>
     </BrowserRouter>
   );
 };
