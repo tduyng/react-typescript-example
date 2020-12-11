@@ -1,10 +1,15 @@
 import React from 'react';
-import { Spinner } from './Loading.styles';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 export const Loading = () => {
   return (
-    <div>
-      <Spinner />
+    <div className="container">
+      <div style={{ margin: 'auto', textAlign: 'center' }}>
+        <Spin indicator={antIcon} />
+      </div>
     </div>
   );
 };
