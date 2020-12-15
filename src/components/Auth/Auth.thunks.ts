@@ -40,7 +40,7 @@ export const login = (payload: ReqLogin) => async dispatch => {
       dispatch(actions.loginSuccess(user));
       dispatch(
         setAlert({
-          msg: 'You are logged!',
+          msg: 'You are logged in!',
           type: AlertTypes.SUCCESS,
         }),
       );
