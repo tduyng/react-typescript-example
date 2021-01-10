@@ -47,6 +47,7 @@ password: 123456
   - Lazy load page
   - Using ant design
   - Using json-server to create fake server backend
+  - CI-CD with Travisci & Github actions
   
 
 ## Project structure
