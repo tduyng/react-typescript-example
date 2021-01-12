@@ -9,7 +9,20 @@ Template Typescript React Project
 Demo deploy at: [reactts-boilerplate.netlify.app](https://reactts-boilerplate.netlify.app/)
 
 
+
+**This version is deprecated, It will be updated & changed soon. Learn more about  [React boiler plate](https://github.com/react-boilerplate/react-boilerplate)**
+
+
 ---
+
+- [TypeScript React Boilerplate](#typescript-react-boilerplate)
+  - [Installation](#installation)
+  - [Technologies](#technologies)
+  - [Project structure](#project-structure)
+    - [src folder](#src-folder)
+  - [Project Routes](#project-routes)
+    - [Public routes](#public-routes)
+    - [Private routes (need auth)](#private-routes-need-auth)
 ## Installation
 
 To use this template
@@ -50,6 +63,9 @@ password: 123456
   
 
 ## Project structure
+
+<details>
+<summary>Click me to expand</summary>
 
 ```tree
 .
@@ -175,6 +191,10 @@ password: 123456
 └── yarn.lock
 
 ```
+
+</details>
+
+---
   
 ### src folder
   - **@types**: Declare modules, interface, type for TypeScript
