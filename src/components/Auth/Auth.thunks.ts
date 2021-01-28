@@ -47,8 +47,20 @@ export const login = (payload: ReqLogin) => async dispatch => {
       dispatch(loadUser());
       return;
     }
+    dispatch(
+      setAlert({
+        msg: 'Invalid credentials',
+        type: AlertTypes.ERROR,
+      }),
+    );
     return dispatch(actions.loginFailed());
   } catch (error) {
+    dispatch(
+      setAlert({
+        msg: 'Invalid credentials',
+        type: AlertTypes.ERROR,
+      }),
+    );
     return dispatch(actions.loginFailed());
   }
 };
