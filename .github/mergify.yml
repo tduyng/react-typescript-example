@@ -2,8 +2,8 @@ pull_request_rules:
   - name: Automated merge for Renovate pull requests
     conditions:
       - author=renovate[bot]
-      - status-success=build
-      - status-success=lint
+      - status-success=build (14.x)
+      - status-success=lint (14.x)
       - status-success=Travis CI - Pull Request
     actions:
       merge:
@@ -14,8 +14,8 @@ pull_request_rules:
   - name: Automated dependabot merge
     conditions:
       - author~=^dependabot(|-preview)\[bot\]$
-      - status-success=build
-      - status-success=lint
+      - status-success=build (14.x)
+      - status-success=lint (14.x)
       - status-success=Travis CI - Pull Request
     actions:
       merge:
