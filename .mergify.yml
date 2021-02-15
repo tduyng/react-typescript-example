@@ -1,0 +1,24 @@
+pull_request_rules:
+  - name: Automated merge for Renovate pull requests
+    conditions:
+      - author=renovate[bot]
+      - status-success=build
+      - status-success=lint
+      - status-success=Travis CI - Pull Request
+    actions:
+      merge:
+        method: merge
+      label:
+        add: ['chore(deps):', '🛠 Improvement']
+
+  - name: Automated dependabot merge
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - status-success=build
+      - status-success=lint
+      - status-success=Travis CI - Pull Request
+    actions:
+      merge:
+        method: merge
+      label:
+        add: ['chore(deps):', '🛠 Improvement']
