@@ -1,5 +1,9 @@
 language: node_js
 
+branches:
+  only:
+    - main
+
 node_js:
   - 12
 
@@ -12,3 +16,4 @@ notification:
 
 script:
   - yarn build
+  - yarn lint
